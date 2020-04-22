@@ -15,16 +15,17 @@ for repo in $REPOS ; do
         cd $repo
     else
         cd $repo
-        git pull -q
+        git reset --quiet --hard origin/master
+        git pull --quiet
     fi
     echo "== $repo =="
-    git reset --hard origin/master
 
     # Check README
     if ! grep -q Logo-Darktext-borders.png README.rst 2>/dev/null ; then
         echo "WARNING: README.rst not containing logo."
     fi
 
+    # Update files
     for file in $INITFILES ; do
         if [ ! -f $file ] ; then
             cp ../../$file $file
@@ -38,9 +39,11 @@ for repo in $REPOS ; do
             cp ../../$file $file
         fi
     done
+
+    # Add and push
     git add .
     git commit -m 'Sync with WeblateOrg/meta'
-    git show
+    git push
 
     echo
     cd ..
