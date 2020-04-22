@@ -1,0 +1,15 @@
+{
+    "problemMatcher": [
+        {
+            "owner": "sphinx",
+            "pattern": [
+                {
+                    "regexp": "^(##\\[error\\])?([^:]*):(\\d+):(.*)$",
+                    "file": 2,
+                    "line": 3,
+                    "message": 4
+                }
+            ]
+        }
+    ]
+}
