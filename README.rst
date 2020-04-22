@@ -1,0 +1,14 @@
+.. image:: https://s.weblate.org/cdn/Logo-Darktext-borders.png
+   :alt: Weblate
+   :target: https://weblate.org/
+   :height: 80px
+
+**Weblate is a copylefted libre software web-based continuous localization system,
+used by over 1150 libre projects and companies in more than 115 countries.**
+
+Meta repository used to keep in sync actions, labels and some other metadata.
+
+Usage
+-----
+
+./sync.sh
