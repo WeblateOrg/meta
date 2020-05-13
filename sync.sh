@@ -1,6 +1,6 @@
 #!/bin/sh
 
-REPOS="customize-example wlc scripts fedora_messaging weblate website weblate_schemas translation-finder munin fail2ban docker docker-compose hosted wllegal language-data graphics"
+REPOS="customize-example wlc scripts fedora_messaging weblate website weblate_schemas translation-finder munin fail2ban docker docker-compose hosted wllegal language-data graphics helm"
 
 INITFILES="requirements-lint.txt .pre-commit-config.yaml"
 COPYFILES=".github/stale.yml .github/labels.yml .github/workflows/closing.yml .github/workflows/labels.yml .github/workflows/label-sync.yml .github/workflows/pre-commit.yml .github/FUNDING.yml .yamllint.yml"
