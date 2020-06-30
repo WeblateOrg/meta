@@ -1,10 +1,14 @@
 #!/bin/sh
 
+set -u -e
+
 REPOS="customize-example wlc scripts fedora_messaging weblate website weblate_schemas translation-finder munin fail2ban docker docker-compose hosted wllegal language-data graphics helm"
 
 INITFILES="requirements-lint.txt .pre-commit-config.yaml"
 COPYFILES=".github/stale.yml .github/labels.yml .github/workflows/closing.yml .github/workflows/labels.yml .github/workflows/label-sync.yml .github/workflows/pre-commit.yml .github/FUNDING.yml .yamllint.yml"
 PRESENTFILES=".github/matchers/sphinx-linkcheck.json .github/matchers/sphinx.json .github/matchers/flake8.json "
+
+. .venv/bin/activate
 
 mkdir -p repos
 cd repos
@@ -19,6 +23,9 @@ for repo in $REPOS ; do
         git pull --quiet
     fi
     echo "== $repo =="
+
+    # Pre-commit update
+    pre-commit autoupdate
 
     # Check README
     if ! grep -q Logo-Darktext-borders.png README.rst 2>/dev/null ; then
