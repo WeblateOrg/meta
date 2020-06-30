@@ -43,3 +43,11 @@ repos:
     rev: 3.7.9
     hooks:
       - id: flake8
+  - repo: https://github.com/awebdeveloper/pre-commit-stylelint
+    rev: 0.0.2
+    hooks:
+      - id: stylelint
+        args: ["--formatter=compact"]
+        additional_dependencies:
+          - stylelint@latest
+          - stylelint-config-standard@latest
