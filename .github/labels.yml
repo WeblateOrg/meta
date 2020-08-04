@@ -45,6 +45,9 @@
 - color: 000000
   name: submodules
   description: Pull requests that update Submodules code
+- color: 000000
+  name: github_actions
+  description: Pull requests that update GitHub Actions code
 # Hacktoberfest
 - color: 129e5e
   name: hacktoberfest
