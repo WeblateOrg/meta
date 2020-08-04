@@ -21,7 +21,7 @@
   description: This doesn't seem right
 - color: d876e3
   name: question
-  description: Further information is requested
+  description: Support question
 - color: ffffff
   name: wontfix
   description: This will not be worked on
