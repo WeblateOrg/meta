@@ -48,6 +48,9 @@
 - color: 000000
   name: github_actions
   description: Pull requests that update GitHub Actions code
+- color: 21ceff
+  name: docker
+  description: Pull requests that update Docker code
 # Hacktoberfest
 - color: 129e5e
   name: hacktoberfest
