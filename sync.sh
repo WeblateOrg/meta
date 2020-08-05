@@ -26,9 +26,6 @@ for repo in $REPOS ; do
     fi
     echo "== $repo =="
 
-    # Pre-commit update
-    pre-commit autoupdate
-
     # Check README
     if ! grep -q Logo-Darktext-borders.png README.rst 2>/dev/null ; then
         echo "WARNING: README.rst not containing logo."
@@ -49,6 +46,9 @@ for repo in $REPOS ; do
             cp ../../$file $file
         fi
     done
+
+    # Pre-commit update
+    pre-commit autoupdate
 
     # Generate dependabot configuration
     $ROOT/generate-dependabot
