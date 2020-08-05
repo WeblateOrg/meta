@@ -51,6 +51,10 @@
 - color: 21ceff
   name: docker
   description: Pull requests that update Docker code
+# Kodiaq
+- color: 000000
+  name: automerge
+  description: Automatically merge pull request once tests pass
 # Hacktoberfest
 - color: 129e5e
   name: hacktoberfest
