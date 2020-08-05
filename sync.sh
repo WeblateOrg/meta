@@ -10,6 +10,8 @@ PRESENTFILES=".github/matchers/sphinx-linkcheck.json .github/matchers/sphinx.jso
 
 . .venv/bin/activate
 
+ROOT=$PWD
+
 mkdir -p repos
 cd repos
 
@@ -47,6 +49,9 @@ for repo in $REPOS ; do
             cp ../../$file $file
         fi
     done
+
+    # Generate dependabot configuration
+    $ROOT/generate-dependabot
 
     # Add and push
     git add .

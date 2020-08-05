@@ -33,24 +33,6 @@
 - color: 0025ff
   name: dependencies
   description: Pull requests that update a dependency file
-- color: 2b67c6
-  name: python
-  description: Pull requests that update Python code
-- color: "168700"
-  name: javascript
-  description: Pull requests that update Javascript code
-- color: ee0701
-  name: security
-  description: Pull requests that address a security vulnerability
-- color: 000000
-  name: submodules
-  description: Pull requests that update Submodules code
-- color: 000000
-  name: github_actions
-  description: Pull requests that update GitHub Actions code
-- color: 21ceff
-  name: docker
-  description: Pull requests that update Docker code
 # Kodiaq
 - color: 000000
   name: automerge
