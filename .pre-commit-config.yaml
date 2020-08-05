@@ -69,10 +69,6 @@ repos:
           - eslint-plugin-standard@>=4.0.0
           - eslint-config-prettier@latest
           - eslint-plugin-prettier@latest
-  - repo: https://gitlab.com/pycqa/flake8
-    rev: 3.8.3
-    hooks:
-      - id: flake8
   - repo: https://github.com/awebdeveloper/pre-commit-stylelint
     rev: 0.0.2
     hooks:
