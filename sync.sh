@@ -40,7 +40,7 @@ for repo in $REPOS ; do
     mkdir -p .github/workflows/
     for file in $INITFILES ; do
         if [ ! -f "$file" ] ; then
-            cp "../../$file""$file"
+            cp "../../$file" "$file"
         fi
     done
     for file in $COPYFILES ; do
