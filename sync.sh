@@ -56,7 +56,7 @@ for repo in $REPOS ; do
     pre-commit autoupdate
 
     # Generate dependabot configuration
-    $ROOT/generate-dependabot
+    "$ROOT/generate-dependabot"
 
     # Add and push
     git add .
