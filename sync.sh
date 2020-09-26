@@ -9,6 +9,7 @@ COPYFILES=".github/stale.yml .github/labels.yml .github/workflows/closing.yml .g
 PRESENTFILES=".github/workflows/super-linter.yml .github/matchers/sphinx-linkcheck.json .github/matchers/sphinx.json .github/matchers/flake8.json .github/matchers/eslint-compact.json .github/workflows/flake8.yml .github/workflows/eslint.yml .github/workflows/stylelint.yml .eslintrc.yml .stylelintrc"
 
 if [ -f .venv/bin/activate ] ; then
+    # shellcheck disable=SC1091
     . .venv/bin/activate
 else
     echo "Missing virtualenv in .venv!"
