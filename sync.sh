@@ -8,7 +8,12 @@ INITFILES="requirements-lint.txt .pre-commit-config.yaml .github/dependabot.yml"
 COPYFILES=".github/stale.yml .github/labels.yml .github/workflows/closing.yml .github/workflows/labels.yml .github/workflows/label-sync.yml .github/workflows/pre-commit.yml .github/workflows/pull_requests.yaml .github/FUNDING.yml .github/.kodiak.toml .yamllint.yml SECURITY.md"
 PRESENTFILES=".github/workflows/super-linter.yml .github/matchers/sphinx-linkcheck.json .github/matchers/sphinx.json .github/matchers/flake8.json .github/matchers/eslint-compact.json .github/workflows/flake8.yml .github/workflows/eslint.yml .github/workflows/stylelint.yml .eslintrc.yml .stylelintrc"
 
-. .venv/bin/activate
+if [ -f .venv/bin/activate ] ; then
+    . .venv/bin/activate
+else
+    echo "Missing virtualenv in .venv!"
+    exit 1
+fi
 
 ROOT=$PWD
 
@@ -16,11 +21,11 @@ mkdir -p repos
 cd repos
 
 for repo in $REPOS ; do
-    if [ ! -d $repo ] ; then
-        git clone git@github.com:WeblateOrg/$repo.git
-        cd $repo
+    if [ ! -d "$repo" ] ; then
+        git clone "git@github.com:WeblateOrg/$repo.git"
+        cd "$repo"
     else
-        cd $repo
+        cd "$repo"
         git reset --quiet --hard origin/master
         git pull --quiet
     fi
@@ -34,16 +39,16 @@ for repo in $REPOS ; do
     # Update files
     mkdir -p .github/workflows/
     for file in $INITFILES ; do
-        if [ ! -f $file ] ; then
-            cp ../../$file $file
+        if [ ! -f "$file" ] ; then
+            cp "../../$file""$file"
         fi
     done
     for file in $COPYFILES ; do
-        cp ../../$file $file
+        cp "../../$file" "$file"
     done
     for file in $PRESENTFILES ; do
-        if [ -f $file ] ; then
-            cp ../../$file $file
+        if [ -f "$file" ] ; then
+            cp "../../$file" "$file"
         fi
     done
 
