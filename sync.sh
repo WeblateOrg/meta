@@ -6,7 +6,7 @@ REPOS="customize-example wlc scripts fedora_messaging weblate website weblate_sc
 
 INITFILES="requirements-lint.txt .pre-commit-config.yaml .github/dependabot.yml"
 COPYFILES=".github/stale.yml .github/labels.yml .github/workflows/closing.yml .github/workflows/labels.yml .github/workflows/label-sync.yml .github/workflows/pre-commit.yml .github/workflows/pull_requests.yaml .github/FUNDING.yml .github/.kodiak.toml .yamllint.yml SECURITY.md"
-PRESENTFILES=".github/matchers/sphinx-linkcheck.json .github/matchers/sphinx.json .github/matchers/flake8.json .github/matchers/eslint-compact.json .github/workflows/flake8.yml .github/workflows/eslint.yml .github/workflows/stylelint.yml .eslintrc.yml .stylelintrc"
+PRESENTFILES=".github/workflows/super-linter.yml .github/matchers/sphinx-linkcheck.json .github/matchers/sphinx.json .github/matchers/flake8.json .github/matchers/eslint-compact.json .github/workflows/flake8.yml .github/workflows/eslint.yml .github/workflows/stylelint.yml .eslintrc.yml .stylelintrc"
 
 . .venv/bin/activate
 
