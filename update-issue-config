@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generates Dependabot configuration for Weblate repositories."""
+"""Synchronizes GitHub issue template links for Weblate repositories."""
 
 import os
 import sys
