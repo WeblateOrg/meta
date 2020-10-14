@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+"""Generates Dependabot configuration for Weblate repositories."""
+
+import os
+import sys
+
+import ruamel.yaml
+
+root = sys.argv[1]
+
+yaml = ruamel.yaml.YAML()
+
+filename = ".github/ISSUE_TEMPLATE/config.yml"
+sourcename = os.path.join(root, filename)
+dirname = os.path.dirname(filename)
+
+if not os.path.exists(dirname):
+    os.makedirs(dirname)
+
+with open(sourcename, "r") as handle:
+    template = yaml.load(handle)
+    links = {link["url"]: link for link in template["contact_links"]}
+
+try:
+    with open(filename, "r") as handle:
+        data = yaml.load(handle)
+except IOError:
+    with open(sourcename, "r") as handle:
+        data = yaml.load(handle)
+
+if "contact_links" not in data:
+    data["contact_links"] = []
+
+for pos, item in enumerate(data["contact_links"]):
+    if item["url"] in links:
+        data["contact_links"][pos] = links.pop(item["url"])
+
+data["contact_links"].extend(links.values())
+
+with open(filename, "w") as handle:
+    yaml.indent(mapping=2, sequence=4, offset=2)
+    yaml.dump(data, handle)

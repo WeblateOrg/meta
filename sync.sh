@@ -59,6 +59,9 @@ for repo in $REPOS ; do
     # Generate dependabot configuration
     "$ROOT/generate-dependabot"
 
+    # Update issue templates
+    "$ROOT/update-issue-config" "$ROOT"
+
     # Add and push
     git add .
     git commit -m 'Sync with WeblateOrg/meta'
