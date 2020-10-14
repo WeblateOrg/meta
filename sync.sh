@@ -33,8 +33,8 @@ for repo in $REPOS ; do
     echo "== $repo =="
 
     # Check README
-    if ! grep -q Logo-Darktext-borders.png README.rst 2>/dev/null ; then
-        echo "WARNING: README.rst not containing logo."
+    if ! grep -q Logo-Darktext-borders.png README.* 2>/dev/null ; then
+        echo "WARNING: README does not containing logo."
     fi
 
     # Update files
