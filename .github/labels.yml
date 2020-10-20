@@ -64,5 +64,5 @@
   name: ux
   description: Issues related to user experience.
 - color: b38ddd
-  name: need info
+  name: needinfo
   description: This needs more information from the reporter to be implemented.
