@@ -1,10 +1,10 @@
 contact_links:
-  - name: Get Professional Support
+  - name: Read our clear, thorough and localized Docs
+    url: https://docs.weblate.org/
+    about: Save your time! There is an instant solution for many issues in the docs appreciated by numerous users. And it might be in your preferred language.
+  - name: Get Professional support
     url: https://weblate.org/support/
-    about: As the subscriber, you will always receive fast replies from our dedicated support team.
+    about: As a subscriber, you will always receive fast and helpful replies from our dedicated support team. More responsible and faster for your business, also makes Weblate stronger.
   - name: Ask a Question
     url: https://github.com/WeblateOrg/weblate/discussions
-    about: Want to discuss something with a community? Use our discussions!
-  - name: Read the Docs
-    url: https://docs.weblate.org/
-    about: Be sure you've read the docs!
+    about: Want to discuss something with a community? Do it in discussions!
