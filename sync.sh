@@ -64,8 +64,10 @@ for repo in $REPOS ; do
 
     # Add and push
     git add .
-    git commit -m 'Sync with WeblateOrg/meta'
-    git push
+    if ! git diff --exit-code ; then
+        git commit -m 'Sync with WeblateOrg/meta'
+        git push
+    fi
 
     echo
     cd ..
