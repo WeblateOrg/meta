@@ -1,4 +1,5 @@
 <!-- This file is maintained in https://github.com/WeblateOrg/meta/ -->
+<!-- markdownlint-disable MD041 -->
 
 Before submitting a pull request, please ensure that:
 
