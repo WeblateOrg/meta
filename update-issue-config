@@ -2,6 +2,7 @@
 """Synchronizes GitHub issue template links for Weblate repositories."""
 
 import os
+import subprocess
 import sys
 
 import ruamel.yaml
@@ -40,3 +41,5 @@ data["contact_links"].extend(links.values())
 with open(filename, "w") as handle:
     yaml.indent(mapping=2, sequence=4, offset=2)
     yaml.dump(data, handle)
+
+subprocess.run(["pre-commit", "run", "--files", filename])

@@ -2,6 +2,7 @@
 """Generates Dependabot configuration for Weblate repositories."""
 
 import os
+import subprocess
 import sys
 
 import ruamel.yaml
@@ -50,3 +51,5 @@ yaml = ruamel.yaml.YAML()
 with open(".github/dependabot.yml", "w") as handle:
     yaml.indent(mapping=2, sequence=4, offset=2)
     yaml.dump(root, handle)
+
+subprocess.run(["pre-commit", "run", "--files", ".github/dependabot.yml"])
