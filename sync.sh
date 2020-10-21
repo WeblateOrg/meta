@@ -64,7 +64,7 @@ for repo in $REPOS ; do
 
     # Add and push
     git add .
-    if ! git diff --exit-code ; then
+    if ! git diff --cached --exit-code ; then
         git commit -m 'Sync with WeblateOrg/meta'
         git push
     fi
