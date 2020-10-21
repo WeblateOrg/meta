@@ -1,3 +1,7 @@
+---
+comment: This file is maintained in https://github.com/WeblateOrg/meta/
+---
+
 Before submitting a pull request, please ensure that:
 
 - [ ] Every commit has a message which concisely describes it.
