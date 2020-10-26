@@ -22,7 +22,7 @@ detections = (
     ("requirements-lint.txt", "pip", "/"),
     (".gitmodules", "gitsubmodule", "/"),
     ("Dockerfile", "docker", "/"),
-    ("/scripts/yarn", "npm", "/scripts/yarn"),
+    ("scripts/yarn", "npm", "/scripts/yarn"),
 )
 
 if len(sys.argv) > 1:
