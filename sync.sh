@@ -62,6 +62,9 @@ for repo in $REPOS ; do
     # Update issue templates
     "$ROOT/update-issue-config" "$ROOT"
 
+    # Apply fixes
+    "$ROOT/repo-fixups"
+
     # Add and push
     git add .
     if ! git diff --cached --exit-code ; then

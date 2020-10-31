@@ -1,0 +1,6 @@
+#!/bin/sh
+
+sed -i \
+    -e 's@https://github.com/prettier/prettier@https://github.com/prettier/pre-commit@' \
+    -e 's@rev: 2.1.2@rev: v2.1.2@' \
+    .pre-commit-config.yaml
