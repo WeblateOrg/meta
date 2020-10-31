@@ -53,6 +53,9 @@ for repo in $REPOS ; do
         fi
     done
 
+    # Apply fixes
+    "$ROOT/repo-fixups"
+
     # Pre-commit update
     pre-commit autoupdate
 
@@ -61,9 +64,6 @@ for repo in $REPOS ; do
 
     # Update issue templates
     "$ROOT/update-issue-config" "$ROOT"
-
-    # Apply fixes
-    "$ROOT/repo-fixups"
 
     # Add and push
     git add .
