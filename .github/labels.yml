@@ -38,7 +38,7 @@
   name: automerge
   description: Automatically merge pull request once tests pass.
 # Hacktoberfest
-- color: 129e5e
+- color: 7057ff
   name: hacktoberfest
   description: This is suitable for Hacktoberfest. Don’t try to spam.
 # Weblate specific
