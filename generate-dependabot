@@ -20,6 +20,7 @@ detections = (
     (".github/workflows", "github-actions", "/"),
     ("requirements.txt", "pip", "/"),
     ("requirements-lint.txt", "pip", "/"),
+    ("docs/requirements.txt", "pip", "/docs/"),
     (".gitmodules", "gitsubmodule", "/"),
     ("Dockerfile", "docker", "/"),
     ("scripts/yarn", "npm", "/scripts/yarn"),
