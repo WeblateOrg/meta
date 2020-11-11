@@ -27,7 +27,7 @@ for repo in $REPOS ; do
         cd "$repo"
     else
         cd "$repo"
-        git reset --quiet --hard origin/master
+        git reset --quiet --hard origin/HEAD
         git pull --quiet
     fi
     echo "== $repo =="
