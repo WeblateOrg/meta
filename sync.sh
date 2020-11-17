@@ -5,8 +5,9 @@ set -u -e
 REPOS="customize-example wlc scripts fedora_messaging weblate website weblate_schemas translation-finder munin fail2ban docker docker-compose hosted wllegal language-data graphics helm siphashc openshift"
 
 INITFILES="requirements-lint.txt .pre-commit-config.yaml .github/dependabot.yml"
-COPYFILES=".github/stale.yml .github/labels.yml .github/workflows/closing.yml .github/workflows/labels.yml .github/workflows/label-sync.yml .github/workflows/pre-commit.yml .github/workflows/pull_requests.yaml .github/FUNDING.yml .github/.kodiak.toml .yamllint.yml SECURITY.md .github/PULL_REQUEST_TEMPLATE.md .markdownlint.json"
+COPYFILES=".github/labels.yml .github/workflows/closing.yml .github/workflows/labels.yml .github/workflows/label-sync.yml .github/workflows/pre-commit.yml .github/workflows/pull_requests.yaml .github/FUNDING.yml .github/.kodiak.toml .yamllint.yml SECURITY.md .github/PULL_REQUEST_TEMPLATE.md .markdownlint.json .github/workflows/stale.yml"
 PRESENTFILES=".github/workflows/super-linter.yml .github/matchers/sphinx-linkcheck.json .github/matchers/sphinx.json .github/matchers/flake8.json .github/matchers/eslint-compact.json .github/workflows/flake8.yml .github/workflows/eslint.yml .github/workflows/stylelint.yml .eslintrc.yml .stylelintrc"
+REMOVEFILES=".github/stale.yml"
 
 if [ -f .venv/bin/activate ] ; then
     # shellcheck disable=SC1091
@@ -50,6 +51,11 @@ for repo in $REPOS ; do
     for file in $PRESENTFILES ; do
         if [ -f "$file" ] ; then
             cp "../../$file" "$file"
+        fi
+    done
+    for file in $REMOVEFILES ; do
+        if [ -f "$file" ] ; then
+            rm "$file"
         fi
     done
 
