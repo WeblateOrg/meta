@@ -51,8 +51,8 @@ repos:
     hooks:
       - id: check-hooks-apply
       - id: check-useless-excludes
-  - repo: https://github.com/prettier/pre-commit
-    rev: 83c5da9dc412f5a2294d6c67ab349e9d30caca31
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.1.2
     hooks:
       - id: prettier
   - repo: https://github.com/pre-commit/mirrors-eslint
