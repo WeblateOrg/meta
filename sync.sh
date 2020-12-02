@@ -2,11 +2,65 @@
 
 set -u -e
 
-REPOS="customize-example wlc scripts fedora_messaging weblate website weblate_schemas translation-finder munin fail2ban docker docker-compose hosted wllegal language-data graphics helm siphashc openshift"
+REPOS="
+    customize-example
+    wlc
+    scripts
+    fedora_messaging
+    weblate website
+    weblate_schemas
+    translation-finder
+    munin
+    fail2ban
+    docker
+    docker-compose
+    hosted wllegal
+    language-data
+    graphics
+    helm
+    siphashc
+    openshift
+"
 
-INITFILES="requirements-lint.txt .pre-commit-config.yaml .github/dependabot.yml"
-COPYFILES=".github/labels.yml .github/workflows/closing.yml .github/workflows/labels.yml .github/workflows/label-sync.yml .github/workflows/pre-commit.yml .github/workflows/pull_requests.yaml .github/FUNDING.yml .github/.kodiak.toml .yamllint.yml SECURITY.md .github/PULL_REQUEST_TEMPLATE.md .markdownlint.json .github/workflows/stale.yml"
-PRESENTFILES=".github/workflows/super-linter.yml .github/matchers/sphinx-linkcheck.json .github/matchers/sphinx.json .github/matchers/flake8.json .github/matchers/eslint-compact.json .github/workflows/flake8.yml .github/workflows/eslint.yml .github/workflows/stylelint.yml .eslintrc.yml .stylelintrc"
+# Copy the files to all repos if not present, these are expected to diverge
+INITFILES="
+    requirements-lint.txt
+    .pre-commit-config.yaml
+    .github/dependabot.yml
+"
+
+# Copy these files unconditionally
+COPYFILES="
+    .github/labels.yml
+    .github/workflows/closing.yml
+    .github/workflows/labels.yml
+    .github/workflows/label-sync.yml
+    .github/workflows/pre-commit.yml
+    .github/workflows/pull_requests.yaml
+    .github/FUNDING.yml
+    .github/.kodiak.toml
+    .yamllint.yml SECURITY.md
+    .github/PULL_REQUEST_TEMPLATE.md
+    .markdownlint.json
+    .github/workflows/stale.yml
+"
+
+# Update these files if present
+PRESENTFILES="
+    .github/workflows/super-linter.yml
+    .github/matchers/sphinx-linkcheck.json
+    .github/matchers/sphinx-linkcheck-warn.json
+    .github/matchers/sphinx.json
+    .github/matchers/flake8.json
+    .github/matchers/eslint-compact.json
+    .github/workflows/flake8.yml
+    .github/workflows/eslint.yml
+    .github/workflows/stylelint.yml
+    .eslintrc.yml
+    .stylelintrc
+"
+
+# Files to remove
 REMOVEFILES=".github/stale.yml"
 
 if [ -f .venv/bin/activate ] ; then
