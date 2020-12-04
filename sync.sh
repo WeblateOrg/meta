@@ -76,6 +76,16 @@ ROOT=$PWD
 mkdir -p repos
 cd repos
 
+copyfile() {
+    file=$1
+    repo=$2
+    if [ -f "../../$file.$repo" ] ; then
+        cp "../../$file.$repo" "$file"
+    else
+        cp "../../$file" "$file"
+    fi
+}
+
 for repo in $REPOS ; do
     if [ ! -d "$repo" ] ; then
         git clone "git@github.com:WeblateOrg/$repo.git"
@@ -96,15 +106,15 @@ for repo in $REPOS ; do
     mkdir -p .github/workflows/
     for file in $INITFILES ; do
         if [ ! -f "$file" ] ; then
-            cp "../../$file" "$file"
+            copyfile "$file" "$repo"
         fi
     done
     for file in $COPYFILES ; do
-        cp "../../$file" "$file"
+        copyfile "$file" "$repo"
     done
     for file in $PRESENTFILES ; do
         if [ -f "$file" ] ; then
-            cp "../../$file" "$file"
+            copyfile "$file" "$repo"
         fi
     done
     for file in $REMOVEFILES ; do
