@@ -5,13 +5,14 @@ labels: question
 ---
 
 <!--
-
 Want your answer quickly and guaranteed? Follow https://weblate.org/support/ to reach our dedicated support team. As a subscriber, you will always have priority and help Weblate growing.
 -->
 
 **Describe the issue**
 
+<!--
 A clear and concise description of the problem you are facing.
+-->
 
 **I already tried**
 
@@ -31,11 +32,15 @@ Steps to reproduce the behavior:
 
 **Expected behavior**
 
+<!--
 A clear and concise description of what you expected to happen.
+-->
 
 **Screenshots**
 
+<!--
 If applicable, add screenshots to help explain your problem.
+-->
 
 **Exception traceback**
 
@@ -47,4 +52,6 @@ for information how to obtain that.
 
 **Additional context**
 
+<!--
 Add any other context about the problem here.
+-->

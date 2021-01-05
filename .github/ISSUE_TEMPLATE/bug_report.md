@@ -5,11 +5,11 @@ about: Create a report to help us improve
 
 **Describe the bug**
 
+<!--
 A clear and concise description of what the bug is.
+-->
 
 **To Reproduce the bug**
-
-Description should look similar to this:
 
 Steps to reproduce the behavior:
 
@@ -20,11 +20,15 @@ Steps to reproduce the behavior:
 
 **Expected behavior**
 
+<!--
 A clear and concise description of what you expected to happen.
+-->
 
 **Screenshots**
 
+<!--
 If applicable, add screenshots to better explain your problem.
+-->
 
 **Exception traceback**
 
@@ -36,4 +40,6 @@ for information how to obtain that.
 
 **Additional context**
 
+<!--
 Add any other context about the problem here.
+-->
