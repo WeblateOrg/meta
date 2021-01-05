@@ -1,4 +1,5 @@
 ---
+# This file is maintained in https://github.com/WeblateOrg/meta/
 name: Feature request
 about: Suggest an idea for this project
 ---

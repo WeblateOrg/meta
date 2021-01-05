@@ -1,4 +1,5 @@
 ---
+# This file is maintained in https://github.com/WeblateOrg/meta/
 name: Bug report
 about: Create a report to help us improve
 ---

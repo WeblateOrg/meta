@@ -1,4 +1,5 @@
 ---
+# This file is maintained in https://github.com/WeblateOrg/meta/
 name: Support question
 about: Help with configuration or deployment
 labels: question
