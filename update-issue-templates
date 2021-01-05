@@ -1,0 +1,72 @@
+#!/usr/bin/env python
+"""Generate issue templates from snippets."""
+
+FILES = {
+    "bug_report.md": (
+        "describe-issue",
+        "tried",
+        "reproduce",
+        "expected",
+        "screenshots",
+        "exception",
+        "additional",
+    ),
+    "bug_report.md.weblate": (
+        "describe-issue",
+        "tried",
+        "reproduce",
+        "expected",
+        "screenshots",
+        "exception",
+        "weblate-versions",
+        "weblate-checks",
+        "additional",
+    ),
+    "feature_request.md": (
+        "feature-describe",
+        "feature-solution",
+        "feature-alternatives",
+        "screenshots",
+        "additional",
+    ),
+    "support_question.md": (
+        "commercial",
+        "describe-issue",
+        "tried",
+        "reproduce",
+        "expected",
+        "screenshots",
+        "exception",
+        "additional",
+    ),
+    "support_question.md.weblate": (
+        "commercial",
+        "describe-issue",
+        "tried",
+        "reproduce",
+        "expected",
+        "screenshots",
+        "exception",
+        "weblate-versions",
+        "weblate-checks",
+        "additional",
+    ),
+}
+
+SNIPPETS = {}
+for snippets in FILES.values():
+    for snippet in snippets:
+        if snippet not in SNIPPETS:
+            filename = f".github/ISSUE_TEMPLATE/snippets/{snippet}.md"
+            with open(filename, "r") as handle:
+                SNIPPETS[snippet] = handle.read()
+
+for filename, snippets in FILES.items():
+    with open(f".github/ISSUE_TEMPLATE/{filename}", "r") as handle:
+        header = handle.read().split("\n---\n")[0]
+    with open(f".github/ISSUE_TEMPLATE/{filename}", "w") as handle:
+        handle.write(header)
+        handle.write("\n---\n")
+        for snippet in snippets:
+            handle.write("\n")
+            handle.write(SNIPPETS[snippet])

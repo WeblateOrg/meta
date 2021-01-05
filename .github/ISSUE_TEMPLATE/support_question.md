@@ -22,7 +22,7 @@ Describe the steps you tried to solve the problem yourself.
 - [ ] I've read and searched [the docs](https://docs.weblate.org/) and did not find the answer there.
       If you didn’t try already, try to search there what you wrote above.
 
-**To Reproduce**
+**To Reproduce the issue**
 
 Steps to reproduce the behavior:
 
@@ -40,13 +40,13 @@ A clear and concise description of what you expected to happen.
 **Screenshots**
 
 <!--
-If applicable, add screenshots to help explain your problem.
+If applicable, add screenshots to better explain your problem.
 -->
 
 **Exception traceback**
 
 <!--
-In case you observed server erorr or crash, please see
+In case you observed server error or crash, please see
 <https://docs.weblate.org/en/latest/contributing/debugging.html>
 for information how to obtain that.
 -->

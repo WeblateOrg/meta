@@ -4,13 +4,20 @@ name: Bug report
 about: Create a report to help us improve
 ---
 
-**Describe the bug**
+**Describe the issue**
 
 <!--
-A clear and concise description of what the bug is.
+A clear and concise description of the problem you are facing.
 -->
 
-**To Reproduce the bug**
+**I already tried**
+
+Describe the steps you tried to solve the problem yourself.
+
+- [ ] I've read and searched [the docs](https://docs.weblate.org/) and did not find the answer there.
+      If you didn’t try already, try to search there what you wrote above.
+
+**To Reproduce the issue**
 
 Steps to reproduce the behavior:
 

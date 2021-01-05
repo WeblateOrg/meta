@@ -22,8 +22,14 @@ A clear and concise description of what the new feature should do.
 A clear and concise description of any alternative solutions or features you've considered.
 -->
 
+**Screenshots**
+
+<!--
+If applicable, add screenshots to better explain your problem.
+-->
+
 **Additional context**
 
 <!--
-Add any other context or screenshots about the feature request here.
+Add any other context about the problem here.
 -->
