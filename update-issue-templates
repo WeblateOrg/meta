@@ -3,6 +3,7 @@
 
 FILES = {
     "bug_report.md": (
+        "intro",
         "describe-issue",
         "tried",
         "reproduce",
@@ -12,6 +13,7 @@ FILES = {
         "additional",
     ),
     "bug_report.md.weblate": (
+        "intro",
         "describe-issue",
         "tried",
         "reproduce",
@@ -23,6 +25,7 @@ FILES = {
         "additional",
     ),
     "feature_request.md": (
+        "intro",
         "feature-describe",
         "feature-solution",
         "feature-alternatives",
@@ -31,6 +34,7 @@ FILES = {
     ),
     "support_question.md": (
         "commercial",
+        "intro",
         "describe-issue",
         "tried",
         "reproduce",
@@ -41,6 +45,7 @@ FILES = {
     ),
     "support_question.md.weblate": (
         "commercial",
+        "intro",
         "describe-issue",
         "tried",
         "reproduce",
