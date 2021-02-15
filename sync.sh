@@ -59,7 +59,6 @@ PRESENTFILES="
     .github/workflows/flake8.yml
     .github/workflows/eslint.yml
     .github/workflows/stylelint.yml
-    .github/workflows/codeql-analysis.yml
     .eslintrc.yml
     .stylelintrc
 "
