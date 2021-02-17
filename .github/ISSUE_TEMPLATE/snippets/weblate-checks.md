@@ -2,7 +2,7 @@
 
 <!--
 Please paste the output of check --deploy command over here. Depending on
-installation these can be executed in different way, please consult
+the installation, these can be executed in a different way. Please consult
 https://docs.weblate.org/en/latest/admin/management.html for more details.
 
 On pip installed Weblate:
