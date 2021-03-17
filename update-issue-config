@@ -18,10 +18,12 @@ dirname = os.path.dirname(filename)
 if not os.path.exists(dirname):
     os.makedirs(dirname)
 
+# Parse meta issue config (template)
 with open(sourcename, "r") as handle:
     template = yaml.load(handle)
     links = {link["url"]: link for link in template["contact_links"]}
 
+# Parse repository config, fall back to template if not present
 try:
     with open(filename, "r") as handle:
         data = yaml.load(handle)
