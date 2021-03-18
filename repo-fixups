@@ -1,3 +1,3 @@
 #!/bin/sh
 
-sed -i 's/1150 libre projects and companies in more than 115 countries/2500 libre projects and companies in more than 165 countries/' README.*
+sed -i 's$pypa/gh-action-pypi-publish@master$pypa/gh-action-pypi-publish@release/v1$' .github/workflows/*.yml
