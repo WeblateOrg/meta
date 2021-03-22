@@ -129,9 +129,6 @@ for repo in $REPOS ; do
     # Apply fixes
     "$ROOT/repo-fixups"
 
-    # Pre-commit update
-    pre-commit autoupdate
-
     # Generate dependabot configuration
     "$ROOT/generate-dependabot"
 
