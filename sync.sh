@@ -20,6 +20,7 @@ REPOS="
     helm
     siphashc
     openshift
+    .github
 "
 
 # Copy the files to all repos if not present, these are expected to diverge
