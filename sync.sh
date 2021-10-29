@@ -40,7 +40,8 @@ COPYFILES="
     .github/workflows/pull_requests.yaml
     .github/FUNDING.yml
     .github/.kodiak.toml
-    .yamllint.yml SECURITY.md
+    .yamllint.yml
+    SECURITY.md
     .github/PULL_REQUEST_TEMPLATE.md
     .markdownlint.json
     .github/workflows/stale.yml
