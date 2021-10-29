@@ -84,6 +84,10 @@ cd repos
 copyfile() {
     file=$1
     repo=$2
+    dir=$(dirname "$file")
+    if [ ! -d "$dir" ] ; then
+        mkdir -p "$dir"
+    fi
     if [ -f "../../$file.$repo" ] ; then
         cp "../../$file.$repo" "$file"
     else
