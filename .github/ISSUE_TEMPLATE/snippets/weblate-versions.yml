@@ -11,7 +11,7 @@
     validations:
       required: true
   - type: textarea
-    id: checks
+    id: versions
     attributes:
       label: Weblate versions
       description: >
