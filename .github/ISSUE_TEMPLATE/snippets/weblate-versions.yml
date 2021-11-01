@@ -15,9 +15,14 @@
     attributes:
       label: Weblate versions
       description: >
-        Please paste the output of `list_versions` command over here. Depending on
-        the installation these can be executed in a different way. Please consult
-        https://docs.weblate.org/en/latest/admin/management.html for more details.
+        Please paste the output of
+        [list_versions](https://docs.weblate.org/en/latest/admin/management.html#list-versions)
+        command over here.
+
+        Depending on the installation, these can be executed in a different
+        way. Please consult [the management commands
+        documentation](https://docs.weblate.org/en/latest/admin/management.html)
+        for more details.
 
         On pip installed Weblate:
 
