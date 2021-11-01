@@ -68,13 +68,13 @@ PRESENTFILES="
 # Files to remove
 REMOVEFILES=".github/stale.yml"
 
-if [ -f .venv/bin/activate ] ; then
-    # shellcheck disable=SC1091
-    . .venv/bin/activate
-else
+if [ ! -f .venv/bin/activate ] ; then
     echo "Missing virtualenv in .venv!"
     exit 1
 fi
+
+# shellcheck disable=SC1091
+. .venv/bin/activate
 
 ROOT=$PWD
 
