@@ -1,0 +1,10 @@
+  - type: checkboxes
+    id: tried
+    attributes:
+      label: I already tried
+      description: Describe the steps you tried to solve the problem yourself.
+      options:
+        - label: I've read and searched [the docs](https://docs.weblate.org/) and did not find the answer there. If you didn’t try already, try to search there what you wrote above.
+          required: true
+        - label: I've searched for similar issues in this repository.
+          required: true

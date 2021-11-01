@@ -1,0 +1,9 @@
+  - type: textarea
+    id: reproducer
+    attributes:
+      label: Steps to reproduce the behavior
+      value: |
+        1. Go to '...'
+        2. Scroll down to '...'
+        3. Click on '...'
+        4. See error

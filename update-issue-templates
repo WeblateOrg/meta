@@ -2,7 +2,9 @@
 """Generate issue templates from snippets."""
 
 FILES = {
-    "bug_report.md": (
+    "bug_report.yml": (
+        "head",
+        "bug_report",
         "intro",
         "describe-issue",
         "tried",
@@ -12,7 +14,9 @@ FILES = {
         "exception",
         "additional",
     ),
-    "bug_report.md.weblate": (
+    "bug_report.yml.weblate": (
+        "head",
+        "bug_report",
         "intro",
         "describe-issue",
         "tried",
@@ -24,7 +28,9 @@ FILES = {
         "weblate-checks",
         "additional",
     ),
-    "feature_request.md": (
+    "feature_request.yml": (
+        "head",
+        "feature_request",
         "intro",
         "feature-describe",
         "feature-solution",
@@ -32,9 +38,11 @@ FILES = {
         "screenshots",
         "additional",
     ),
-    "support_question.md": (
-        "commercial",
+    "support_question.yml": (
+        "head",
+        "feature_request",
         "intro",
+        "commercial",
         "describe-issue",
         "tried",
         "reproduce",
@@ -43,9 +51,11 @@ FILES = {
         "exception",
         "additional",
     ),
-    "support_question.md.weblate": (
-        "commercial",
+    "support_question.yml.weblate": (
+        "head",
+        "feature_request",
         "intro",
+        "commercial",
         "describe-issue",
         "tried",
         "reproduce",
@@ -62,16 +72,11 @@ SNIPPETS = {}
 for snippets in FILES.values():
     for snippet in snippets:
         if snippet not in SNIPPETS:
-            filename = f".github/ISSUE_TEMPLATE/snippets/{snippet}.md"
+            filename = f".github/ISSUE_TEMPLATE/snippets/{snippet}.yml"
             with open(filename, "r") as handle:
                 SNIPPETS[snippet] = handle.read()
 
 for filename, snippets in FILES.items():
-    with open(f".github/ISSUE_TEMPLATE/{filename}", "r") as handle:
-        header = handle.read().split("\n---\n")[0]
     with open(f".github/ISSUE_TEMPLATE/{filename}", "w") as handle:
-        handle.write(header)
-        handle.write("\n---\n")
         for snippet in snippets:
-            handle.write("\n")
             handle.write(SNIPPETS[snippet])

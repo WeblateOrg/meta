@@ -45,9 +45,9 @@ COPYFILES="
     .github/PULL_REQUEST_TEMPLATE.md
     .markdownlint.json
     .github/workflows/stale.yml
-    .github/ISSUE_TEMPLATE/bug_report.md
-    .github/ISSUE_TEMPLATE/feature_request.md
-    .github/ISSUE_TEMPLATE/support_question.md
+    .github/ISSUE_TEMPLATE/bug_report.yml
+    .github/ISSUE_TEMPLATE/feature_request.yml
+    .github/ISSUE_TEMPLATE/support_question.yml
 "
 
 # Update these files if present
@@ -66,7 +66,12 @@ PRESENTFILES="
 "
 
 # Files to remove
-REMOVEFILES=".github/stale.yml"
+REMOVEFILES="
+    .github/stale.yml
+    .github/ISSUE_TEMPLATE/bug_report.md
+    .github/ISSUE_TEMPLATE/feature_request.md
+    .github/ISSUE_TEMPLATE/support_question.md
+"
 
 if [ ! -f .venv/bin/activate ] ; then
     echo "Missing virtualenv in .venv!"

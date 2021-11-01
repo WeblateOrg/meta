@@ -73,3 +73,4 @@ repos:
           - stylelint-config-prettier@latest
           - stylelint-prettier@latest
           - prettier@latest
+exclude: "^.github/ISSUE_TEMPLATE/snippets/.*$"
