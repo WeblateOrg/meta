@@ -1,7 +1,9 @@
 # This file is maintained in https://github.com/WeblateOrg/meta/
 # and generated from .github/ISSUE_TEMPLATE/snippets there.
-name: Feature request
-description: Suggest an idea for this project
+name: Support question
+description: Help with configuration or deployment
+labels:
+  - question
 body:
   - type: markdown
     attributes:

@@ -40,7 +40,7 @@ FILES = {
     ),
     "support_question.yml": (
         "head",
-        "feature_request",
+        "support_question",
         "intro",
         "commercial",
         "describe-issue",
@@ -53,7 +53,7 @@ FILES = {
     ),
     "support_question.yml.weblate": (
         "head",
-        "feature_request",
+        "support_question",
         "intro",
         "commercial",
         "describe-issue",
