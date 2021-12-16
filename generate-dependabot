@@ -41,6 +41,7 @@ for ecosystem, directory in sorted(ecosystems):
         "directory": directory,
         "schedule": {"interval": "daily"},
         "labels": ["dependencies"],
+        "open-pull-requests-limit": 10,
     }
     # Add automerge label
     if ecosystem in automerge:
