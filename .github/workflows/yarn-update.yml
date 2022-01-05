@@ -1,5 +1,5 @@
 # This file is maintained in https://github.com/WeblateOrg/meta/
-name: Flake8
+name: yarn update
 
 on:
   push:
