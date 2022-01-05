@@ -5,6 +5,10 @@ on:
   push:
     branches:
       - main
+    paths:
+      - ".github/workflows/yarn-update.yml"
+      - "scripts/yarn-update"
+      - "scripts/yarn/*"
 
 jobs:
   yarn-update:
