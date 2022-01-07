@@ -61,6 +61,7 @@ PRESENTFILES="
     .github/workflows/flake8.yml
     .github/workflows/eslint.yml
     .github/workflows/stylelint.yml
+    .github/workflows/yarn-update.yml
     .eslintrc.yml
     .stylelintrc
 "
