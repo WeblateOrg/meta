@@ -20,6 +20,7 @@ REPOS="
     helm
     siphashc
     openshift
+    locale_lint
     .github
 "
 
