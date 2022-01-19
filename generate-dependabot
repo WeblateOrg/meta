@@ -14,7 +14,7 @@ root.yaml_set_start_comment(
 root["version"] = 2
 root["updates"] = []
 
-automerge = {"github-actions", "pip", "docker"}
+automerge = {"github-actions", "pip"}
 
 detections = (
     (".github/workflows", "github-actions", "/"),
