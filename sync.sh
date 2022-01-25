@@ -7,7 +7,8 @@ REPOS="
     wlc
     scripts
     fedora_messaging
-    weblate website
+    weblate
+    website
     weblate_schemas
     translation-finder
     munin
