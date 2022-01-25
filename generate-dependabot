@@ -50,8 +50,10 @@ for ecosystem, directory in sorted(ecosystems):
 
 
 yaml = ruamel.yaml.YAML()
+yaml.indent = 2
+yaml.preserve_quotes = False
+yaml.width = sys.maxsize
 with open(".github/dependabot.yml", "w") as handle:
-    yaml.indent(mapping=2, sequence=4, offset=2)
     yaml.dump(root, handle)
 
 subprocess.run(["pre-commit", "run", "--files", ".github/dependabot.yml"])

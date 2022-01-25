@@ -10,6 +10,9 @@ import ruamel.yaml
 root = sys.argv[1]
 
 yaml = ruamel.yaml.YAML()
+yaml.indent = 2
+yaml.preserve_quotes = False
+yaml.width = sys.maxsize
 
 filename = ".github/ISSUE_TEMPLATE/config.yml"
 sourcename = os.path.join(root, filename)
@@ -41,7 +44,6 @@ for pos, item in enumerate(data["contact_links"]):
 data["contact_links"].extend(links.values())
 
 with open(filename, "w") as handle:
-    yaml.indent(mapping=2, sequence=4, offset=2)
     yaml.dump(data, handle)
 
 subprocess.run(["pre-commit", "run", "--files", filename])
