@@ -1,5 +1,5 @@
-  - type: textarea
-    id: additional
-    attributes:
-      label: Additional context
-      description: Add any other context about the problem here.
+- type: textarea
+  id: additional
+  attributes:
+    label: Additional context
+    description: Add any other context about the problem here.

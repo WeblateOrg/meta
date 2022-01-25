@@ -1,5 +1,5 @@
-  - type: textarea
-    id: expected
-    attributes:
-      label: Expected behavior
-      description: A clear and concise description of what you expected to happen.
+- type: textarea
+  id: expected
+  attributes:
+    label: Expected behavior
+    description: A clear and concise description of what you expected to happen.

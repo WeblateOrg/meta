@@ -1,31 +1,31 @@
-  - type: textarea
-    id: checks
-    attributes:
-      label: Weblate deploy checks
-      description: >
-        Please paste here list of [the deploy
-        checks](https://docs.weblate.org/en/latest/admin/install.html#production).
+- type: textarea
+  id: checks
+  attributes:
+    label: Weblate deploy checks
+    description: >
+      Please paste here list of [the deploy
+      checks](https://docs.weblate.org/en/latest/admin/install.html#production).
 
-        Depending on the installation, these can be executed in a different
-        way. Please consult [the management commands
-        documentation](https://docs.weblate.org/en/latest/admin/management.html)
-        for more details.
+      Depending on the installation, these can be executed in a different
+      way. Please consult [the management commands
+      documentation](https://docs.weblate.org/en/latest/admin/management.html)
+      for more details.
 
-        On pip installed Weblate:
+      On pip installed Weblate:
 
-        ```
-        weblate check --deploy
-        ```
+      ```
+      weblate check --deploy
+      ```
 
-        On Git checkout:
+      On Git checkout:
 
-        ```
-        ./manage.py check --deploy
-        ```
+      ```
+      ./manage.py check --deploy
+      ```
 
-        Using docker-compose:
+      Using docker-compose:
 
-        ```
-        docker-compose exec --user weblate weblate weblate check --deploy
-        ```
-      render: shell
+      ```
+      docker-compose exec --user weblate weblate weblate check --deploy
+      ```
+    render: shell

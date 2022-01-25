@@ -1,8 +1,8 @@
-  - type: textarea
-    id: what-happened
-    attributes:
-      label: Describe the issue
-      description: A clear and concise description of the problem you are facing.
-      placeholder: Tell us what you see!
-    validations:
-      required: true
+- type: textarea
+  id: what-happened
+  attributes:
+    label: Describe the issue
+    description: A clear and concise description of the problem you are facing.
+    placeholder: Tell us what you see!
+  validations:
+    required: true

@@ -1,43 +1,43 @@
-  - type: dropdown
-    id: installation
-    attributes:
-      label: How do you run Weblate?
-      options:
-        - weblate.org service
-        - Docker container
-        - PyPI module
-        - Git checkout
-        - Other
-    validations:
-      required: true
-  - type: textarea
-    id: versions
-    attributes:
-      label: Weblate versions
-      description: >
-        Please paste the output of
-        [list_versions](https://docs.weblate.org/en/latest/admin/management.html#list-versions)
-        command over here.
+- type: dropdown
+  id: installation
+  attributes:
+    label: How do you run Weblate?
+    options:
+    - weblate.org service
+    - Docker container
+    - PyPI module
+    - Git checkout
+    - Other
+  validations:
+    required: true
+- type: textarea
+  id: versions
+  attributes:
+    label: Weblate versions
+    description: >
+      Please paste the output of
+      [list_versions](https://docs.weblate.org/en/latest/admin/management.html#list-versions)
+      command over here.
 
-        Depending on the installation, these can be executed in a different
-        way. Please consult [the management commands
-        documentation](https://docs.weblate.org/en/latest/admin/management.html)
-        for more details.
+      Depending on the installation, these can be executed in a different
+      way. Please consult [the management commands
+      documentation](https://docs.weblate.org/en/latest/admin/management.html)
+      for more details.
 
-        On pip installed Weblate:
+      On pip installed Weblate:
 
-        ```
-        weblate list_versions
-        ```
+      ```
+      weblate list_versions
+      ```
 
-        On Git checkout:
+      On Git checkout:
 
-        ```
-        ./manage.py list_versions
-        ```
+      ```
+      ./manage.py list_versions
+      ```
 
-        Using docker-compose:
+      Using docker-compose:
 
-        ```
-        docker-compose exec --user weblate weblate weblate list_versions
-        ```
+      ```
+      docker-compose exec --user weblate weblate weblate list_versions
+      ```
