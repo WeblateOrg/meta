@@ -25,6 +25,9 @@ detections = (
     ("Dockerfile", "docker", "/"),
     ("scripts/yarn", "npm", "/scripts/yarn"),
 )
+intervals = {
+    "gitsubmodule": "monthly",
+}
 
 if len(sys.argv) > 1:
     os.chdir(sys.argv[1])
@@ -39,7 +42,7 @@ for ecosystem, directory in sorted(ecosystems):
     update = {
         "package-ecosystem": ecosystem,
         "directory": directory,
-        "schedule": {"interval": "daily"},
+        "schedule": {"interval": intervals.get(ecosystem, "daily")},
         "labels": ["dependencies"],
         "open-pull-requests-limit": 10,
     }
