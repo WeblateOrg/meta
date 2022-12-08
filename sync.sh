@@ -29,11 +29,11 @@ REPOS="
 INITFILES="
     requirements-lint.txt
     .pre-commit-config.yaml
-    .github/dependabot.yml
 "
 
 # Copy these files unconditionally
 COPYFILES="
+    .github/renovate.json
     .github/labels.yml
     .github/workflows/closing.yml
     .github/workflows/labels.yml
@@ -71,6 +71,7 @@ PRESENTFILES="
 # Files to remove
 REMOVEFILES="
     .github/stale.yml
+    .github/dependabot.yml
     .github/ISSUE_TEMPLATE/bug_report.md
     .github/ISSUE_TEMPLATE/feature_request.md
     .github/ISSUE_TEMPLATE/support_question.md
@@ -142,9 +143,6 @@ for repo in $REPOS ; do
 
     # Apply fixes
     "$ROOT/repo-fixups"
-
-    # Generate dependabot configuration
-    "$ROOT/generate-dependabot"
 
     # Update issue templates
     "$ROOT/update-issue-config" "$ROOT"

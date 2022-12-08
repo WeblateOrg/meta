@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sed -i -s -e 's/\(- [^ ]\+@\)latest/\11.0/' -e 's/\(- [^ ]\+@\)>=\([^ ]\+\)/\1\2/' .pre-commit-config.yaml
+
 exit
 
 # Use unicode name
