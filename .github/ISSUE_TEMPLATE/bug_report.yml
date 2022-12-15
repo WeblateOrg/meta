@@ -53,7 +53,7 @@ body:
       [the debugging documentation](https://docs.weblate.org/en/latest/contributing/debugging.html)
       for information how to obtain that.
 
-      **This will be rendered as Python traceback automatically.**
+      This will be rendered as Python traceback automatically.
     render: pytb
 - type: markdown
   attributes:
