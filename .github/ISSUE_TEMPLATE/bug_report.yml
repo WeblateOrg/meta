@@ -55,8 +55,8 @@ body:
     render: pytb
 - type: markdown
   attributes:
-  value: >
-    **Note**: This will be rendered as Python traceback automatically.
+    value: >
+      **Note**: This will be rendered as Python traceback automatically.
 - type: textarea
   id: additional
   attributes:
