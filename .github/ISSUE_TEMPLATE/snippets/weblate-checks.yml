@@ -28,4 +28,6 @@
       ```
       docker-compose exec --user weblate weblate weblate check --deploy
       ```
+
+      This will be rendered as console output automatically.
     render: shell

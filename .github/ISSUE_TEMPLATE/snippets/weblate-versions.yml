@@ -41,3 +41,5 @@
       ```
       docker-compose exec --user weblate weblate weblate list_versions
       ```
+
+      This will properly render without any escaping.
