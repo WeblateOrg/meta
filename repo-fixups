@@ -1,5 +1,8 @@
 #!/bin/sh
 
+if [ ! -f setup.cfg ] ; then
+    exit
+fi
 sed -i -e 's/^select = /extend-select = /' -e 's/^ignore = /extend-ignore = /' setup.cfg
 
 exit
