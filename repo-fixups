@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sed -i -e 's/^select = /extend-select = /' -e 's/^ignore = /extend-ignore = /' setup.cfg
+
 exit
 
 # Use unicode name
