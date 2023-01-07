@@ -14,7 +14,7 @@
   "pre-commit": {
     "enabled": true
   },
-  "python": {
+  "pip_requirements": {
     "fileMatch": ["^requirements-.*\\.txt$"]
   },
   "packageRules": [
