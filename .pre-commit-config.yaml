@@ -40,6 +40,8 @@ repos:
   - id: mixed-line-ending
     args: [--fix=lf]
   - id: debug-statements
+  - id: pretty-format-json
+    args: [--no-sort-keys, --autofix, --no-ensure-ascii]
 - repo: https://github.com/adrienverge/yamllint
   rev: v1.28.0
   hooks:
