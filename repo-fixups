@@ -1,7 +1,5 @@
 #!/bin/sh
 
-exit
-
 # Use unicode name
 git grep -l 'Copyright .* Michal Cihar' | grep -v '\.po$' | xargs -r sed -i 's/\(Copyright .* )Michal Cihar/\1 Michal Čihař/'
 # Use unicode symbol
@@ -9,6 +7,6 @@ git grep -l 'Copyright ([cC]) .* Michal Čihař' | grep -v '\.po$' | xargs -r se
 # Add copyright symbol
 git grep -l 'Copyright 2.* Michal Čihař' | grep -v '\.po$' | xargs -r sed -i 's/\Copyright \(2.* Michal Čihař\)/Copyright © \1/'
 # Extend one year to range
-git grep -l 'Copyright [^0-9]*20[12][0-9] Michal Čihař' | grep -v '\.po$' | xargs -r sed -i 's/\(Copyright [^0-9]*\)\(20[12][0-9]\)\( Michal Čihař\)/\1\2–2022\3/'
+git grep -l 'Copyright [^0-9]*20[12][0-9] Michal Čihař' | grep -v '\.po$' | xargs -r sed -i 's/\(Copyright [^0-9]*\)\(20[12][0-9]\)\( Michal Čihař\)/\1\2–2023\3/'
 # Extend ranges
-git grep -l 'Copyright .*[0-9][ –-]\+\(201[0-9]\|2020\|2021\) Michal Čihař' | grep -v '\.po$' | xargs -r sed -i 's/\(Copyright .*[0-9]\)[ –-]\+\(201[0-9]\|2020\|2021\)\( Michal Čihař\)/\1–2022\3/'
+git grep -l 'Copyright .*[0-9][ –-]\+\(201[0-9]\|2020\|2021\) Michal Čihař' | grep -v '\.po$' | xargs -r sed -i 's/\(Copyright .*[0-9]\)[ –-]\+\(201[0-9]\|2020\|2021\)\( Michal Čihař\)/\1–2023\3/'
