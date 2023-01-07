@@ -1,4 +1,7 @@
 #!/bin/sh
+# shellcheck: disable=SC2317
+
+exit
 
 # Use unicode name
 git grep -l 'Copyright .* Michal Cihar' | grep -v '\.po$' | xargs -r sed -i 's/\(Copyright .* )Michal Cihar/\1 Michal Čihař/'
