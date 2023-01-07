@@ -1,5 +1,5 @@
 #!/bin/sh
-# shellcheck: disable=SC2317
+# shellcheck disable=SC2317
 
 exit
 
