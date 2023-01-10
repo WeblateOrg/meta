@@ -105,6 +105,11 @@ copyfile() {
     else
         cp "../../$file" "$file"
     fi
+    if [ -f "../../$file.license" ] ; then
+        cp "../../$file.license" "$file.license"
+    elif [ -f  "$file.license" ] ; then
+        rm  "$file.license"
+    fi
 }
 
 for repo in $REPOS ; do
