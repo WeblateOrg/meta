@@ -1,3 +1,7 @@
+.. Copyright © Michal Čihař <michal@cihar.com>
+..
+.. SPDX-License-Identifier: GPL-3.0-or-later
+
 .. image:: https://s.weblate.org/cdn/Logo-Darktext-borders.png
    :alt: Weblate
    :target: https://weblate.org/
