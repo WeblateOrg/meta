@@ -39,6 +39,17 @@ except IOError:
     with open(sourcename, "r") as handle:
         data = yaml.load(handle)
 
+data.yaml_set_start_comment(
+    """
+# Copyright © Michal Čihař <michal@weblate.org>
+#
+# SPDX-License-Identifier: CC0-1.0
+#
+# This file is maintained in https://github.com/WeblateOrg/meta/
+# and generated using update-issue-config there.
+"""
+)
+
 if "contact_links" not in data:
     data["contact_links"] = []
 
