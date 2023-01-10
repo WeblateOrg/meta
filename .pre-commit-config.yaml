@@ -96,4 +96,8 @@ repos:
   rev: v0.33.0
   hooks:
   - id: markdownlint
+- repo: https://github.com/fsfe/reuse-tool
+  rev: v1.0.0
+  hooks:
+  - id: reuse
 exclude: ^.github/ISSUE_TEMPLATE/snippets/.*$
