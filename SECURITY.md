@@ -1,5 +1,5 @@
 <!--
-Copyright © Michal Čihař <michal@cihar.com>
+Copyright © Michal Čihař <michal@weblate.org>
 
 SPDX-License-Identifier: CC0-1.0
 
