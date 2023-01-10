@@ -4,7 +4,6 @@ name: ESLint
 on:
   push:
     branches-ignore:
-    - dependabot/**
     - deepsource-fix-**
     - renovate/**
     - weblate

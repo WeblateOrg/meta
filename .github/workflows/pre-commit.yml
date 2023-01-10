@@ -4,7 +4,6 @@ name: Pre-commit check
 on:
   push:
     branches-ignore:
-    - dependabot/**
     - deepsource-fix-**
     - renovate/**
     - weblate

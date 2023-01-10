@@ -4,7 +4,6 @@ name: stylelint
 on:
   push:
     branches-ignore:
-    - dependabot/**
     - deepsource-fix-**
     - renovate/**
     - weblate

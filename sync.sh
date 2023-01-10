@@ -71,7 +71,6 @@ PRESENTFILES="
 # Files to remove
 REMOVEFILES="
     .github/stale.yml
-    .github/dependabot.yml
     .github/ISSUE_TEMPLATE/bug_report.md
     .github/ISSUE_TEMPLATE/feature_request.md
     .github/ISSUE_TEMPLATE/support_question.md

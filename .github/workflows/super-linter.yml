@@ -4,7 +4,6 @@ name: Lint Code Base
 on:
   push:
     branches-ignore:
-    - dependabot/**
     - deepsource-fix-**
     - renovate/**
     - weblate
