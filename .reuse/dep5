@@ -3,8 +3,10 @@ Upstream-Name: Weblate Meta
 Upstream-Contact: Michal Čihař <michal@weblate.org>
 Source: https://weblate.org/
 
-# Sample paragraph, commented out:
-#
-# Files: src/*
-# Copyright: $YEAR $NAME <$CONTACT>
-# License: ...
+Files: .github/ISSUE_TEMPLATE/snippets/*.yml
+Copyright: Michal Čihař <michal@weblate.org>
+License: CC0-1.0
+
+Files: .github/matchers/*.json
+Copyright: Michal Čihař <michal@weblate.org>
+License: CC0-1.0
