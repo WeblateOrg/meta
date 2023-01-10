@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Copyright © Michal Čihař <michal@weblate.org>
+#
+# SPDX-License-Identifier: CC0-1.0
+
 set -u -e
 
 REPOS="
