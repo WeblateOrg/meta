@@ -33,11 +33,11 @@ REPOS="
 INITFILES="
     requirements-lint.txt
     .pre-commit-config.yaml
+    .github/renovate.json
 "
 
 # Copy these files unconditionally
 COPYFILES="
-    .github/renovate.json
     .github/labels.yml
     .github/workflows/closing.yml
     .github/workflows/labels.yml
