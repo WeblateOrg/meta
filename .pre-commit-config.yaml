@@ -1,10 +1,33 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.4.0
+  hooks:
+  - id: trailing-whitespace
+  - id: end-of-file-fixer
+  - id: check-yaml
+  - id: requirements-txt-fixer
+  - id: check-merge-conflict
+  - id: check-json
+  - id: mixed-line-ending
+    args: [--fix=lf]
+  - id: debug-statements
+  - id: pretty-format-json
+    args: [--no-sort-keys, --autofix, --no-ensure-ascii]
+- repo: https://github.com/adrienverge/yamllint
+  rev: v1.29.0
+  hooks:
+  - id: yamllint
 - repo: https://github.com/PyCQA/isort
   rev: 5.12.0
   hooks:
   - id: isort
+- repo: https://github.com/asottile/pyupgrade
+  rev: v3.3.1
+  hooks:
+  - id: pyupgrade
+    args: [--py39-plus]
 - repo: https://github.com/psf/black
   rev: 23.1.0
   hooks:
@@ -29,23 +52,10 @@ repos:
     - flake8-self==0.2.2
     - flake8-assertive==2.1.0
     - pep8-naming==0.13.3
-- repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.4.0
+- repo: https://github.com/asottile/blacken-docs
+  rev: 1.13.0
   hooks:
-  - id: trailing-whitespace
-  - id: end-of-file-fixer
-  - id: check-yaml
-  - id: requirements-txt-fixer
-  - id: check-merge-conflict
-  - id: mixed-line-ending
-    args: [--fix=lf]
-  - id: debug-statements
-  - id: pretty-format-json
-    args: [--no-sort-keys, --autofix, --no-ensure-ascii]
-- repo: https://github.com/adrienverge/yamllint
-  rev: v1.29.0
-  hooks:
-  - id: yamllint
+  - id: blacken-docs
 - repo: meta
   hooks:
   - id: check-hooks-apply
@@ -65,9 +75,9 @@ repos:
   hooks:
   - id: mdformat
     additional_dependencies:
-    - mdformat-gfm
-    - mdformat-black
-    - mdformat-shfmt
+    - mdformat-gfm==0.3.5
+    - mdformat-black==0.1.1
+    - mdformat-shfmt==0.1.0
 - repo: https://github.com/pre-commit/mirrors-eslint
   rev: v8.33.0
   hooks:
@@ -101,3 +111,5 @@ repos:
   hooks:
   - id: reuse
 exclude: ^.github/ISSUE_TEMPLATE/snippets/.*$
+ci:
+  autoupdate_schedule: quarterly

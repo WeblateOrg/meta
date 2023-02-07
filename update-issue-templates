@@ -78,7 +78,7 @@ for snippets in FILES.values():
     for snippet in snippets:
         if snippet not in SNIPPETS:
             filename = f".github/ISSUE_TEMPLATE/snippets/{snippet}.yml"
-            with open(filename, "r") as handle:
+            with open(filename) as handle:
                 SNIPPETS[snippet] = handle.read()
 
 for filename, snippets in FILES.items():
