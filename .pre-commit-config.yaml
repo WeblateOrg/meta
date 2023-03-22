@@ -7,9 +7,11 @@ repos:
   - id: trailing-whitespace
   - id: end-of-file-fixer
   - id: check-yaml
+  - id: check-toml
   - id: requirements-txt-fixer
   - id: check-merge-conflict
   - id: check-json
+  - id: debug-statements
   - id: mixed-line-ending
     args: [--fix=lf]
   - id: debug-statements
@@ -70,6 +72,8 @@ repos:
   hooks:
   - id: pretty-format-yaml
     args: [--autofix, --indent, '2']
+  - id: pretty-format-toml
+    args: [--autofix]
 - repo: https://github.com/executablebooks/mdformat
   rev: 0.7.16
   hooks:
@@ -110,6 +114,12 @@ repos:
   rev: v1.1.2
   hooks:
   - id: reuse
+- repo: https://github.com/shellcheck-py/shellcheck-py
+  rev: v0.8.0.4
+  hooks:
+  - id: shellcheck
+    require_serial: true
+
 exclude: ^.github/ISSUE_TEMPLATE/snippets/.*$
 ci:
   autoupdate_schedule: quarterly

@@ -7,6 +7,6 @@ Files: .github/ISSUE_TEMPLATE/snippets/*.yml
 Copyright: Michal Čihař <michal@weblate.org>
 License: CC0-1.0
 
-Files: .gitignore .pre-commit-config.yaml dummy/dummy.css requirements-lint.txt requirements.txt
+Files: .gitignore .pre-commit-config.yaml dummy/dummy.css requirements-lint.txt requirements.txt pyproject.toml
 Copyright: Michal Čihař <michal@weblate.org>
 License: CC0-1.0
