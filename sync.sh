@@ -61,9 +61,8 @@ PRESENTFILES="
     .github/matchers/sphinx-linkcheck.json
     .github/matchers/sphinx-linkcheck-warn.json
     .github/matchers/sphinx.json
-    .github/matchers/flake8.json
     .github/matchers/eslint-compact.json
-    .github/workflows/flake8.yml
+    .github/workflows/ruff.yml
     .github/workflows/eslint.yml
     .github/workflows/stylelint.yml
     .github/workflows/yarn-update.yml
@@ -75,6 +74,8 @@ PRESENTFILES="
 REMOVEFILES="
     .markdownlint.json
     .github/stale.yml
+    .github/matchers/flake8.json
+    .github/workflows/flake8.yml
     .github/ISSUE_TEMPLATE/bug_report.md
     .github/ISSUE_TEMPLATE/feature_request.md
     .github/ISSUE_TEMPLATE/support_question.md
@@ -144,6 +145,9 @@ for repo in $REPOS ; do
             copyfile "$file" "$repo"
         fi
     done
+    if [ -f .github/workflows/flake8.yml ] ; then
+        copyfile ".github/workflows/ruff.yml" "$repo"
+    fi
     for file in $REMOVEFILES ; do
         if [ -f "$file" ] ; then
             rm "$file"
