@@ -145,9 +145,6 @@ for repo in $REPOS ; do
             copyfile "$file" "$repo"
         fi
     done
-    if [ -f .github/workflows/flake8.yml ] ; then
-        copyfile ".github/workflows/ruff.yml" "$repo"
-    fi
     for file in $REMOVEFILES ; do
         if [ -f "$file" ] ; then
             rm "$file"
