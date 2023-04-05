@@ -71,7 +71,7 @@ repos:
   rev: v8.37.0
   hooks:
   - id: eslint
-    args: [--format=compact]
+    args: [--format=github]
     additional_dependencies:
     - prettier@2.8.7
     - eslint@8.37.0
@@ -81,11 +81,12 @@ repos:
     - eslint-plugin-standard@4.1.0
     - eslint-config-prettier@8.8.0
     - eslint-plugin-prettier@4.2.1
+    - eslint-formatter-github@1.1.4
 - repo: https://github.com/awebdeveloper/pre-commit-stylelint
   rev: 0.0.2
   hooks:
   - id: stylelint
-    args: [--formatter=compact]
+    args: [--formatter=github]
     additional_dependencies:
     - stylelint@15.4.0
     - stylelint-config-prettier@9.0.5
