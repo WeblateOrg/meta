@@ -71,7 +71,7 @@ repos:
   rev: v8.37.0
   hooks:
   - id: eslint
-    args: [--format=github]
+    args: [--format=@jamesacarr/github-actions]
     additional_dependencies:
     - prettier@2.8.7
     - eslint@8.37.0
@@ -81,7 +81,7 @@ repos:
     - eslint-plugin-standard@4.1.0
     - eslint-config-prettier@8.8.0
     - eslint-plugin-prettier@4.2.1
-    - eslint-formatter-github@1.1.4
+    - '@jamesacarr/eslint-formatter-github-actions@0.2.0'
 - repo: https://github.com/awebdeveloper/pre-commit-stylelint
   rev: 0.0.2
   hooks:
