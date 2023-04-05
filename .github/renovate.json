@@ -67,6 +67,17 @@
       ],
       "datasourceTemplate": "npm",
       "versioningTemplate": "npm"
+    },
+    {
+      "fileMatch": [
+        "^Dockerfile$"
+      ],
+      "matchStrings": [
+        "ENV WEBLATE_VERSION (?<currentValue>.*?)\\n"
+      ],
+      "depNameTemplate": "Weblate",
+      "datasourceTemplate": "pypi",
+      "versioningTemplate": "pep440"
     }
   ]
 }
