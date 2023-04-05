@@ -39,6 +39,12 @@
         "**/package.json"
       ],
       "automerge": false
+    },
+    {
+      "matchPackageNames": [
+        "shellcheck-py/shellcheck-py"
+      ],
+      "versioning": "loose"
     }
   ],
   "regexManagers": [
