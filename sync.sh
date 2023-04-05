@@ -61,11 +61,6 @@ PRESENTFILES="
     .github/matchers/sphinx-linkcheck.json
     .github/matchers/sphinx-linkcheck-warn.json
     .github/matchers/sphinx.json
-    .github/matchers/flake8.json
-    .github/matchers/eslint-compact.json
-    .github/workflows/flake8.yml
-    .github/workflows/eslint.yml
-    .github/workflows/stylelint.yml
     .github/workflows/yarn-update.yml
     .eslintrc.yml
     .stylelintrc
@@ -75,10 +70,18 @@ PRESENTFILES="
 REMOVEFILES="
     .markdownlint.json
     .github/stale.yml
+    .github/matchers/flake8.json
+    .github/matchers/eslint-compact.json
+    .github/matchers/flake8.json.license
+    .github/matchers/eslint-compact.json.license
+    .github/workflows/flake8.yml
     .github/ISSUE_TEMPLATE/bug_report.md
     .github/ISSUE_TEMPLATE/feature_request.md
     .github/ISSUE_TEMPLATE/support_question.md
     .github/.kodiak.toml
+    .github/workflows/ruff.yml
+    .github/workflows/eslint.yml
+    .github/workflows/stylelint.yml
 "
 
 if [ ! -f .venv/bin/activate ] ; then
