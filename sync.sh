@@ -61,9 +61,6 @@ PRESENTFILES="
     .github/matchers/sphinx-linkcheck.json
     .github/matchers/sphinx-linkcheck-warn.json
     .github/matchers/sphinx.json
-    .github/workflows/ruff.yml
-    .github/workflows/eslint.yml
-    .github/workflows/stylelint.yml
     .github/workflows/yarn-update.yml
     .eslintrc.yml
     .stylelintrc
@@ -82,6 +79,9 @@ REMOVEFILES="
     .github/ISSUE_TEMPLATE/feature_request.md
     .github/ISSUE_TEMPLATE/support_question.md
     .github/.kodiak.toml
+    .github/workflows/ruff.yml
+    .github/workflows/eslint.yml
+    .github/workflows/stylelint.yml
 "
 
 if [ ! -f .venv/bin/activate ] ; then
