@@ -4,22 +4,21 @@
 
 # This file is maintained in https://github.com/WeblateOrg/meta/
 # and generated from .github/ISSUE_TEMPLATE/snippets there.
-name: Support question
-description: Help with configuration or deployment
-labels:
-- question
+name: Bug report
+description: Create a report to help us improve
 body:
 - type: markdown
   attributes:
     value: |
       Thank you for reporting an issue on Weblate! This form will guide you to create a useful issue report.
-
-      Want your answer quickly and guaranteed? Visit https://weblate.org/support/ to reach our dedicated support team. As a subscriber, you will always have priority and help Weblate growing.
 - type: textarea
   id: what-happened
   attributes:
     label: Describe the issue
-    description: A clear and concise description of the problem you are facing.
+    description: >
+      A clear and concise description of the problem you are facing.
+
+      Please include important information as file format you are using or add-ons being installed.
     placeholder: Tell us what you see!
   validations:
     required: true
@@ -37,11 +36,14 @@ body:
   id: reproducer
   attributes:
     label: Steps to reproduce the behavior
-    value: |
+    description: What did you do before the problem has appeared?
+    placeholder: |
       1. Go to '...'
       2. Scroll down to '...'
       3. Click on '...'
       4. See error
+  validations:
+    required: true
 - type: textarea
   id: expected
   attributes:

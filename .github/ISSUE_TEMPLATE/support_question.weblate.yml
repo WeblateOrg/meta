@@ -4,21 +4,25 @@
 
 # This file is maintained in https://github.com/WeblateOrg/meta/
 # and generated from .github/ISSUE_TEMPLATE/snippets there.
-name: Bug report
-description: Create a report to help us improve
+name: Support question
+description: Help with configuration or deployment
+labels:
+- question
 body:
 - type: markdown
   attributes:
     value: |
       Thank you for reporting an issue on Weblate! This form will guide you to create a useful issue report.
+
+      Want your answer quickly and guaranteed? Visit https://weblate.org/support/ to reach our dedicated support team. As a subscriber, you will always have priority and help Weblate growing.
 - type: textarea
   id: what-happened
   attributes:
     label: Describe the issue
     description: >
-        A clear and concise description of the problem you are facing.
+      A clear and concise description of the problem you are facing.
 
-        Please include important information as file format you are using or add-ons being installed.
+      Please include important information as file format you are using or add-ons being installed.
     placeholder: Tell us what you see!
   validations:
     required: true

@@ -19,7 +19,7 @@ FILES = {
         "exception",
         "additional",
     ),
-    "bug_report.yml.weblate": (
+    "bug_report.weblate.yml": (
         "head",
         "bug_report",
         "intro",
@@ -56,7 +56,7 @@ FILES = {
         "exception",
         "additional",
     ),
-    "support_question.yml.weblate": (
+    "support_question.weblate.yml": (
         "head",
         "support_question",
         "intro",
