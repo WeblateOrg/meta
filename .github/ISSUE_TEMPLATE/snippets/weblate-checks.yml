@@ -23,10 +23,10 @@
       ./manage.py check --deploy
       ```
 
-      Using docker-compose:
+      Using docker-compose-plugin:
 
       ```
-      docker-compose exec --user weblate weblate weblate check --deploy
+      docker compose exec --user weblate weblate weblate check --deploy
       ```
 
       This will be rendered as console output automatically.
