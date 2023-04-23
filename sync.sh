@@ -105,7 +105,7 @@ copyfile() {
         mkdir -p "$dir"
     fi
     if [ -f "../../${file%.*}.$repo.${file##*.}" ] ; then
-        cp "../../$file.$repo" "$file"
+        cp "../../${file%.*}.$repo.${file##*.}" "$file"
     elif [ -f "../../$file.$repo" ] ; then
         cp "../../$file.$repo" "$file"
     else
