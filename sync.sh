@@ -52,7 +52,6 @@ COPYFILES="
     .github/workflows/stale.yml
     .github/ISSUE_TEMPLATE/bug_report.yml
     .github/ISSUE_TEMPLATE/feature_request.yml
-    .github/ISSUE_TEMPLATE/support_question.yml
 "
 
 # Update these files if present
