@@ -14,7 +14,7 @@ on:
     - .github/workflows/label-sync.yml
 
 permissions:
-  contents: read
+  issues: write
 
 jobs:
   build:
