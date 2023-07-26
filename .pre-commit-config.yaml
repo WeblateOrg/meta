@@ -90,7 +90,7 @@ repos:
     additional_dependencies:
     - stylelint@15.10.2
     - stylelint-config-prettier@9.0.5
-    - stylelint-prettier@4.0.0
+    - stylelint-prettier@4.0.1
     - prettier@3.0.0
 - repo: https://github.com/igorshubovych/markdownlint-cli
   rev: v0.35.0
