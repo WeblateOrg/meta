@@ -73,7 +73,7 @@ repos:
   - id: eslint
     args: [--format=@jamesacarr/github-actions]
     additional_dependencies:
-    - prettier@3.0.1
+    - prettier@3.0.2
     - eslint@8.47.0
     - eslint-plugin-import@2.28.0
     - eslint-plugin-node@11.1.0
@@ -91,7 +91,7 @@ repos:
     - stylelint@15.10.2
     - stylelint-config-prettier@9.0.5
     - stylelint-prettier@4.0.2
-    - prettier@3.0.1
+    - prettier@3.0.2
 - repo: https://github.com/igorshubovych/markdownlint-cli
   rev: v0.35.0
   hooks:
