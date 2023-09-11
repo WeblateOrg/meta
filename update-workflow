@@ -12,6 +12,12 @@ import sys
 
 import ruamel.yaml
 
+RUNS_UPDATE = {
+    "ubuntu-latest": "ubuntu-22.04",
+    "macos-latest": "macos-12",
+    "windows-latest": "windows-2022",
+}
+
 root = sys.argv[1]
 
 yaml = ruamel.yaml.YAML()
@@ -31,9 +37,15 @@ with open(sys.argv[1]) as handle:
 
 modified = False
 
-# Use latest stable Python version for all workflows
 for job_name in data["jobs"]:
     job = data["jobs"][job_name]
+
+    # Avoid using *-latest OS, pin it instead
+    if job["runs-on"] in RUNS_UPDATE:
+        job["runs-on"] = RUNS_UPDATE[job["runs-on"]]
+        modified = True
+
+    # Use latest stable Python version for all workflows
     for step in job["steps"]:
         if step.get("uses", "").startswith("actions/setup-python@"):
             try:
