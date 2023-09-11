@@ -92,7 +92,7 @@ fi
 # shellcheck disable=SC1091
 . .venv/bin/activate
 
-ROOT=$PWD
+export ROOT="$PWD"
 
 mkdir -p repos
 cd repos

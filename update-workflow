@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+
+# Copyright © Michal Čihař <michal@weblate.org>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+"""Synchronizes GitHub issue template links for Weblate repositories."""
+
+import os
+import subprocess
+import sys
+
+import ruamel.yaml
+
+root = sys.argv[1]
+
+yaml = ruamel.yaml.YAML()
+yaml.indent = 2
+yaml.preserve_quotes = False
+yaml.width = sys.maxsize
+
+filename = ".github/ISSUE_TEMPLATE/config.yml"
+sourcename = os.path.join(root, filename)
+dirname = os.path.dirname(filename)
+
+if not os.path.exists(dirname):
+    os.makedirs(dirname)
+
+with open(sys.argv[1]) as handle:
+    data = yaml.load(handle)
+
+modified = False
+
+# Use latest stable Python version for all workflows
+for job_name in data["jobs"]:
+    job = data["jobs"][job_name]
+    for step in job["steps"]:
+        if step.get("uses", "").startswith("actions/setup-python@"):
+            try:
+                float(step["with"]["python-version"])
+            except (KeyError, ValueError):
+                continue
+            step["with"]["python-version"] = "3.11"
+            modified = True
+
+if modified:
+    with open(sys.argv[1], "w") as handle:
+        yaml.dump(data, handle)
+
+    subprocess.run(
+        ["pre-commit", "run", "--files", sys.argv[1]], check=False, capture_output=True
+    )
