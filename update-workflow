@@ -14,7 +14,7 @@ import ruamel.yaml
 
 RUNS_UPDATE = {
     "ubuntu-latest": "ubuntu-22.04",
-    "macos-latest": "macos-12",
+    "macos-latest": "macos-13",
     "windows-latest": "windows-2022",
 }
 
