@@ -4,9 +4,8 @@
 #
 # SPDX-License-Identifier: CC0-1.0
 
-"""Synchronizes GitHub issue template links for Weblate repositories."""
+"""Synchronizes GitHub workflows for Weblate repositories."""
 
-import os
 import subprocess
 import sys
 
@@ -18,19 +17,10 @@ RUNS_UPDATE = {
     "windows-latest": "windows-2022",
 }
 
-root = sys.argv[1]
-
 yaml = ruamel.yaml.YAML()
 yaml.indent = 2
 yaml.preserve_quotes = False
 yaml.width = sys.maxsize
-
-filename = ".github/ISSUE_TEMPLATE/config.yml"
-sourcename = os.path.join(root, filename)
-dirname = os.path.dirname(filename)
-
-if not os.path.exists(dirname):
-    os.makedirs(dirname)
 
 with open(sys.argv[1]) as handle:
     data = yaml.load(handle)
