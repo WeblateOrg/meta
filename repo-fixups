@@ -16,3 +16,5 @@ for file in .github/workflows/*.yml ; do
 done
 
 "${ROOT:-.}/update-pre-commit" .pre-commit-config.yaml
+
+sed -i 's@^format = "github"@output-format = "github"@' pyproject.toml
