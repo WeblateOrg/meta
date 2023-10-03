@@ -17,5 +17,7 @@ done
 
 "${ROOT:-.}/update-pre-commit" .pre-commit-config.yaml
 
-sed -i 's@^format = "github"@output-format = "github"@' pyproject.toml
-pre-commit run --files pyproject.toml || true
+if [ -f pyproject.toml ] ; then
+    sed -i 's@^format = "github"@output-format = "github"@' pyproject.toml
+    pre-commit run --files pyproject.toml || true
+fi
