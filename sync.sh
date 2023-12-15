@@ -31,7 +31,6 @@ REPOS="
 
 # Copy the files to all repos if not present, these are expected to diverge
 INITFILES="
-    requirements-lint.txt
     .pre-commit-config.yaml
 "
 
@@ -46,6 +45,7 @@ COPYFILES="
     .github/workflows/pull_requests.yaml
     .github/FUNDING.yml
     .yamllint.yml
+    requirements-lint.txt
     SECURITY.md
     .github/PULL_REQUEST_TEMPLATE.md
     .markdownlint.yml
