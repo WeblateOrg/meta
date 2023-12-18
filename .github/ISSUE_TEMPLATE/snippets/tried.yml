@@ -2,9 +2,9 @@
   id: tried
   attributes:
     label: I already tried
-    description: If you didn’t try already, try to search the documentation and existing issues what you wrote above.
+    description: If you didn’t try already, try searching the documentation and existing issues.
     options:
     - label: I've read and searched [the documentation](https://docs.weblate.org/).
       required: true
-    - label: I've searched for similar issues in this repository.
+    - label: I've searched for similar filed issues in this repository.
       required: true

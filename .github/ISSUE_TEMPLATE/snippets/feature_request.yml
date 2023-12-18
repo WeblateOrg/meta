@@ -1,3 +1,8 @@
 name: Feature request
 description: Suggest an idea for this project
 body:
+- type: markdown
+  attributes:
+    value: |
+      Thank you for requesting a change.
+      This form guides you in creating a useful feature request.

@@ -3,9 +3,9 @@
   attributes:
     label: Exception traceback
     description: >
-      In case you observed server error or crash, please see
+      In case you observed a server error or crash, please read
       [the debugging documentation](https://docs.weblate.org/en/latest/contributing/debugging.html)
-      for information how to obtain that.
+      for information on obtaining the relevant logs.
 
-      This will be rendered as Python traceback automatically.
+      This field will be rendered as a Python traceback automatically.
     render: pytb

@@ -2,4 +2,4 @@
   id: additional
   attributes:
     label: Additional context
-    description: Add any other context about the problem here.
+    description: Add any other contextual info about the problem here.

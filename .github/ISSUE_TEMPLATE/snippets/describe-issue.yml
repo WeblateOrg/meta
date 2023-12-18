@@ -5,7 +5,7 @@
     description: >
       A clear and concise description of the problem you are facing.
 
-      Please include important information as file format you are using or add-ons being installed.
+      Please include important information, like the file format you are using and installed add-ons.
     placeholder: Tell us what you see!
   validations:
     required: true

@@ -10,7 +10,6 @@ FILES = {
     "bug_report.yml": (
         "head",
         "bug_report",
-        "intro",
         "commercial",
         "describe-issue",
         "tried",
@@ -23,7 +22,6 @@ FILES = {
     "bug_report.weblate.yml": (
         "head",
         "bug_report",
-        "intro",
         "commercial",
         "describe-issue",
         "tried",
@@ -38,7 +36,6 @@ FILES = {
     "feature_request.yml": (
         "head",
         "feature_request",
-        "intro",
         "commercial",
         "feature-describe",
         "feature-solution",
