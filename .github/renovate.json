@@ -48,6 +48,15 @@
     },
     {
       "matchPackageNames": [
+        "Django"
+      ],
+      "matchDatasources": [
+        "pypi"
+      ],
+      "separateMinorPatch": true
+    },
+    {
+      "matchPackageNames": [
         "python"
       ],
       "matchDatasources": [
