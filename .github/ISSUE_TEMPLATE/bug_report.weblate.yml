@@ -4,7 +4,7 @@
 
 # This file is maintained in https://github.com/WeblateOrg/meta/
 # and generated from .github/ISSUE_TEMPLATE/snippets there.
-name: Bug report (2)
+name: Bug report
 description: Create a report to help us improve
 body:
 - type: markdown
