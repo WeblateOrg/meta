@@ -77,7 +77,7 @@ repos:
   hooks:
   - id: markdownlint
 - repo: https://github.com/fsfe/reuse-tool
-  rev: v3.0.1
+  rev: v3.0.2
   hooks:
   - id: reuse
 - repo: https://github.com/shellcheck-py/shellcheck-py
