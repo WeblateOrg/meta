@@ -44,6 +44,10 @@ for job_name in data["jobs"]:
                 continue
             step["with"]["python-version"] = "3.11"
             modified = True
+        uses = step.get("uses", "")
+        if uses.startswith("actions/checkout@") and uses != "actions/checkout@v4":
+            step["uses"] = "actions/checkout@v4"
+            modified = True
 
 if modified:
     with open(sys.argv[1], "w") as handle:
