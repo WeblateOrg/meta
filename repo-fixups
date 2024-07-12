@@ -8,8 +8,6 @@
 
 #sed -i s@https://github.com/charliermarsh/ruff-pre-commit@https://github.com/astral-sh/ruff-pre-commit@ .pre-commit-config.yaml
 
-sed -i s%codecov/codecov-action@v3%codecov/codecov-action@v4% .github/workflows/*
-
 for file in .github/workflows/*.yml ; do
     "${ROOT:-.}/update-workflow" "$file"
 done
@@ -17,6 +15,6 @@ done
 "${ROOT:-.}/update-pre-commit" .pre-commit-config.yaml
 
 if [ -f pyproject.toml ] ; then
-    sed -i 's@^format = "github"@output-format = "github"@' pyproject.toml
+    sed -i '/output-format = "github"/D' pyproject.toml
     pre-commit run --files pyproject.toml || true
 fi
