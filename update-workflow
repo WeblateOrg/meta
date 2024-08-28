@@ -42,7 +42,7 @@ for job_name in data["jobs"]:
                 float(step["with"]["python-version"])
             except (KeyError, ValueError):
                 continue
-            step["with"]["python-version"] = "3.11"
+            step["with"]["python-version"] = "3.12"
             modified = True
         uses = step.get("uses", "")
         if uses.startswith("actions/checkout@") and uses != "actions/checkout@v4":
