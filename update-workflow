@@ -16,6 +16,7 @@ RUNS_UPDATE = {
     "macos-latest": "macos-13",
     "windows-latest": "windows-2022",
 }
+PYTHON_VERSION = "3.12"
 
 yaml = ruamel.yaml.YAML()
 yaml.indent = 2
@@ -37,14 +38,21 @@ for job_name in data["jobs"]:
 
     # Use latest stable Python version for all workflows
     for step in job["steps"]:
-        if step.get("uses", "").startswith("actions/setup-python@"):
+        uses = step.get("uses", "")
+        if uses.startswith("actions/setup-python@"):
             try:
                 float(step["with"]["python-version"])
             except (KeyError, ValueError):
                 continue
-            step["with"]["python-version"] = "3.12"
+            step["with"]["python-version"] = PYTHON_VERSION
             modified = True
-        uses = step.get("uses", "")
+        if uses.startswith("astral-sh/setup-uv@"):
+            try:
+                float(step["with"]["cache-suffix"])
+            except (KeyError, ValueError):
+                continue
+            step["with"]["cache-suffix"] = PYTHON_VERSION
+            modified = True
         if uses.startswith("actions/checkout@") and uses != "actions/checkout@v4":
             step["uses"] = "actions/checkout@v4"
             modified = True
