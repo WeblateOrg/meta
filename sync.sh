@@ -163,7 +163,7 @@ for repo in $REPOS ; do
     # Add and push
     git add .
     if ! git diff --cached --exit-code ; then
-        git commit -m 'Sync with WeblateOrg/meta'
+        git commit -m 'chore: Sync with WeblateOrg/meta'
         git push
     fi
 
