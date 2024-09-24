@@ -74,7 +74,7 @@ repos:
     - stylelint-prettier@5.0.2
     - prettier@3.3.3
 - repo: https://github.com/igorshubovych/markdownlint-cli
-  rev: v0.41.0
+  rev: v0.42.0
   hooks:
   - id: markdownlint
 - repo: https://github.com/fsfe/reuse-tool
