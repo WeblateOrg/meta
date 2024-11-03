@@ -1,7 +1,19 @@
 [dependency-groups]
+dev = [
+  "ruamel.yaml==0.18.6",
+  {include-group = "pre-commit"}
+]
 pre-commit = [
   "pre-commit==4.0.1"
 ]
+
+[project]
+authors = [
+  {name = "Michal Čihař", email = "michal@weblate.org"}
+]
+name = "weblate-meta"
+requires-python = ">=3.11"
+version = "2024.11"
 
 [tool.isort]
 profile = "black"
