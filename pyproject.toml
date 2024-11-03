@@ -18,12 +18,11 @@ version = "2024.11"
 [tool.isort]
 profile = "black"
 
-[tool.ruff]
+[tool.ruff.lint]
 ignore = [
   "D203",  # CONFIG: incompatible with D211
   "D212"  # CONFIG: incompatible with D213
 ]
-output-format = "github"
 select = [
   "E",
   "F",
@@ -58,7 +57,6 @@ select = [
   "SLF",
   "N"
 ]
-target-version = "py37"
 
-[tool.ruff.mccabe]
+[tool.ruff.lint.mccabe]
 max-complexity = 16
