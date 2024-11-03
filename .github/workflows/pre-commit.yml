@@ -35,9 +35,9 @@ jobs:
       id: pep735
       run: |
         if grep -q dependency-groups pyproject.toml ; then
-          echo "::set-output name=found::true"
+          echo "found=true" >> $GITHUB_OUTPUT
         else
-          echo "::set-output name=found::false"
+          echo "found=false" >> $GITHUB_OUTPUT
         fi
     - name: pre-commit
       if: ${{ steps.pep735.outputs.found }}
