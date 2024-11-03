@@ -1,0 +1,20 @@
+# Copyright © Michal Čihař <michal@weblate.org>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+SPDX-PackageDownloadLocation = "https://weblate.org/"
+SPDX-PackageName = "Weblate Meta"
+SPDX-PackageSupplier = "Michal Čihař <michal@weblate.org>"
+version = 1
+
+[[annotations]]
+SPDX-FileCopyrightText = "Michal Čihař <michal@weblate.org>"
+SPDX-License-Identifier = "CC0-1.0"
+path = ".github/ISSUE_TEMPLATE/snippets/**.yml"
+precedence = "aggregate"
+
+[[annotations]]
+SPDX-FileCopyrightText = "Michal Čihař <michal@weblate.org>"
+SPDX-License-Identifier = "CC0-1.0"
+path = [".gitignore", ".pre-commit-config.yaml", "dummy/dummy.css", "requirements.txt", "pyproject.toml"]
+precedence = "aggregate"
