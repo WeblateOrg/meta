@@ -18,6 +18,7 @@ REPOS="
     munin
     fail2ban
     docker
+    docker-base
     docker-compose
     hosted wllegal
     language-data
