@@ -94,7 +94,7 @@
     {
       "customType": "regex",
       "fileMatch": [
-        "^Dockerfile$"
+        "^.*Dockerfile$"
       ],
       "matchStrings": [
         "ENV WEBLATE_VERSION=(?<currentValue>.*?)\\n"
@@ -106,7 +106,7 @@
     {
       "customType": "regex",
       "fileMatch": [
-        "^Dockerfile$"
+        "^.*Dockerfile$"
       ],
       "matchStrings": [
         "ENV UV_VERSION=(?<currentValue>.*?)\\n"
