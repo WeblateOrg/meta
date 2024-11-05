@@ -125,6 +125,7 @@ for repo in $REPOS ; do
     else
         cd "$repo"
         git reset --quiet --hard origin/HEAD
+        git remote prune origin
         git pull --quiet
     fi
     echo "== $repo =="
