@@ -106,6 +106,18 @@
     {
       "customType": "regex",
       "fileMatch": [
+        "^Dockerfile$"
+      ],
+      "matchStrings": [
+        "ENV UV_VERSION=(?<currentValue>.*?)\\n"
+      ],
+      "depNameTemplate": "uv",
+      "datasourceTemplate": "pypi",
+      "versioningTemplate": "pep440"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
         "(^|/)Chart\\.yaml$"
       ],
       "matchStrings": [
