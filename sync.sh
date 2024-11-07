@@ -61,6 +61,7 @@ PRESENTFILES="
     .github/matchers/sphinx-linkcheck-warn.json
     .github/matchers/sphinx.json
     .github/workflows/yarn-update.yml
+    .github/workflows/uv-upgrade.yml
     .eslintrc.yml
     .stylelintrc
 "
