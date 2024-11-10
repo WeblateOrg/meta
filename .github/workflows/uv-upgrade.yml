@@ -22,7 +22,6 @@ permissions:
 jobs:
   uv-update:
     runs-on: ubuntu-24.04
-    if: hashFiles('uv.lock') != ''
 
     steps:
     - uses: actions/checkout@v4
@@ -47,10 +46,11 @@ jobs:
         python-version: 3.13
 
     - name: Lockfile maintenance
-      if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+      if: (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')) && hashFiles('uv.lock') != ''
       run: uv lock --upgrade --no-sources
 
     - run: uv sync --all-extras --no-sources
+      if: hashFiles('uv.lock') != ''
 
     - name: Update current branch
       if: github.ref != 'refs/heads/main'
