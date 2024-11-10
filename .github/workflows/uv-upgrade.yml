@@ -22,6 +22,7 @@ permissions:
 jobs:
   uv-update:
     runs-on: ubuntu-24.04
+    if: hashFiles('uv.lock') != ''
 
     steps:
     - uses: actions/checkout@v4
@@ -35,7 +36,10 @@ jobs:
         cache-suffix: 3.13
 
     - name: Install apt dependencies
-      run: sudo ./ci/apt-install
+      run: |
+        if [ -f ./ci/apt-install ] ; then
+          sudo ./ci/apt-install
+        fi
 
     - name: Set up Python
       uses: actions/setup-python@v5
