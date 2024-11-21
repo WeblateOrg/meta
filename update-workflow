@@ -32,30 +32,31 @@ for job_name in data["jobs"]:
     job = data["jobs"][job_name]
 
     # Avoid using *-latest OS, pin it instead
-    if job["runs-on"] in RUNS_UPDATE:
+    if "runs-on" in job and job["runs-on"] in RUNS_UPDATE:
         job["runs-on"] = RUNS_UPDATE[job["runs-on"]]
         modified = True
 
     # Use latest stable Python version for all workflows
-    for step in job["steps"]:
-        uses = step.get("uses", "")
-        if uses.startswith("actions/setup-python@"):
-            try:
-                float(step["with"]["python-version"])
-            except (KeyError, ValueError):
-                continue
-            step["with"]["python-version"] = PYTHON_VERSION
-            modified = True
-        if uses.startswith("astral-sh/setup-uv@"):
-            try:
-                float(step["with"]["cache-suffix"])
-            except (KeyError, ValueError):
-                continue
-            step["with"]["cache-suffix"] = PYTHON_VERSION
-            modified = True
-        if uses.startswith("actions/checkout@") and uses != "actions/checkout@v4":
-            step["uses"] = "actions/checkout@v4"
-            modified = True
+    if "steps" in job:
+        for step in job["steps"]:
+            uses = step.get("uses", "")
+            if uses.startswith("actions/setup-python@"):
+                try:
+                    float(step["with"]["python-version"])
+                except (KeyError, ValueError):
+                    continue
+                step["with"]["python-version"] = PYTHON_VERSION
+                modified = True
+            if uses.startswith("astral-sh/setup-uv@"):
+                try:
+                    float(step["with"]["cache-suffix"])
+                except (KeyError, ValueError):
+                    continue
+                step["with"]["cache-suffix"] = PYTHON_VERSION
+                modified = True
+            if uses.startswith("actions/checkout@") and uses != "actions/checkout@v4":
+                step["uses"] = "actions/checkout@v4"
+                modified = True
 
 if modified:
     with open(sys.argv[1], "w") as handle:
