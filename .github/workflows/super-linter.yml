@@ -26,9 +26,8 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Lint Code Base
-      uses: github/super-linter/slim@v5.0.0
+      uses: super-linter/super-linter/slim@v7.2.1
       env:
-        DEFAULT_BRANCH: main
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         VALIDATE_PYTHON_ISORT: false
         VALIDATE_JSCPD: false
