@@ -56,7 +56,6 @@ COPYFILES="
 
 # Update these files if present
 PRESENTFILES="
-    .github/workflows/super-linter.yml
     .github/matchers/sphinx-linkcheck.json
     .github/matchers/sphinx-linkcheck-warn.json
     .github/matchers/sphinx.json
