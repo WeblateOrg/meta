@@ -90,6 +90,11 @@ repos:
   rev: v1.7.7
   hooks:
   - id: actionlint
+- repo: https://github.com/renovatebot/pre-commit-hooks
+  rev: 39.118.0
+  hooks:
+  - id: renovate-config-validator
+    args: [--strict]
 exclude: ^.github/ISSUE_TEMPLATE/snippets/.*$
 ci:
   autoupdate_schedule: quarterly
