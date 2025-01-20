@@ -86,7 +86,10 @@ repos:
   hooks:
   - id: shellcheck
     require_serial: true
-
+- repo: https://github.com/rhysd/actionlint
+  rev: v1.7.7
+  hooks:
+  - id: actionlint
 exclude: ^.github/ISSUE_TEMPLATE/snippets/.*$
 ci:
   autoupdate_schedule: quarterly

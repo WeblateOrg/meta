@@ -41,6 +41,8 @@ if remove:
         del data["repos"][offset]
     changed = True
 
+has_actionlink = False
+
 for repo in data["repos"]:
     if (
         repo["repo"] == "https://github.com/astral-sh/ruff-pre-commit"
@@ -55,6 +57,19 @@ for repo in data["repos"]:
         repo["hooks"][0]["additional_dependencies"] = MDFORMAT_DEPS
         changed = True
 
+    if repo["repo"] == "https://github.com/rhysd/actionlint":
+        has_actionlink = True
+
+
+if not has_actionlink:
+    data["repos"].append(
+        {
+            "repo": "https://github.com/rhysd/actionlint",
+            "rev": "v1.7.7",
+            "hooks": [{"id": "actionlint"}],
+        }
+    )
+    changed = True
 
 if changed:
     with open(sys.argv[1], "w") as handle:
