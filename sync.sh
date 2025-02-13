@@ -84,6 +84,8 @@ REMOVEFILES="
     .github/workflows/ruff.yml
     .github/workflows/eslint.yml
     .github/workflows/stylelint.yml
+    .github/workflows/codeql-analysis.yml
+    .eslintrc.yml
 "
 
 if [ ! -f .venv/bin/activate ] ; then
