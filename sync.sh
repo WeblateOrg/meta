@@ -38,10 +38,6 @@ INITFILES="
 # Copy these files unconditionally
 COPYFILES="
     .github/renovate.json
-    .github/labels.yml
-    .github/workflows/closing.yml
-    .github/workflows/labels.yml
-    .github/workflows/label-sync.yml
     .github/workflows/pre-commit.yml
     .github/workflows/pull_requests.yaml
     .github/FUNDING.yml
@@ -56,6 +52,10 @@ COPYFILES="
 
 # Update these files if present
 PRESENTFILES="
+    .github/workflows/closing.yml
+    .github/labels.yml
+    .github/workflows/labels.yml
+    .github/workflows/label-sync.yml
     .github/matchers/sphinx-linkcheck.json
     .github/matchers/sphinx-linkcheck-warn.json
     .github/matchers/sphinx.json
