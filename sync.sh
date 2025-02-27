@@ -19,6 +19,7 @@ REPOS="
     fail2ban
     docker
     docker-base
+    docker-dev
     docker-compose
     hosted wllegal
     language-data
