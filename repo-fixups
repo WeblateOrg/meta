@@ -58,3 +58,14 @@ sed -i 's,uses: docker/setup-buildx-action.*,uses: docker/setup-buildx-action@b5
 sed -i 's,uses: github/codeql-action/upload-sarif.*,uses: github/codeql-action/upload-sarif@b56ba49b26e50535fa1e7f7db0f4f7b4bf65d80d # v3.28.10,' .github/workflows/*
 
 sed -i 's,uses: peter-evans/dockerhub-description.*,uses: peter-evans/dockerhub-description@e98e4d1628a5f3be2be7c231e50981aee98723ae # v4.0.0,' .github/workflows/*
+
+
+sed -i 's,uses: actions/github-script.*,uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1,' .github/workflows/*
+
+sed -i 's,uses: azure/setup-helm.*,uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v4.3.0,' .github/workflows/*
+
+sed -i 's,uses: docker/build-push-action.*,uses: docker/build-push-action@471d1dc4e07e5cdedd4c2171150001c434f0b7a4 # v6.15.0,' .github/workflows/*
+
+sed -i 's,uses: docker/metadata-action.*,uses: docker/metadata-action@902fa8ec7d6ecbf8d84d538b9b233a880e428804 # v5.7.0,' .github/workflows/*
+
+sed -i 's,uses: docker/setup-qemu-action.*,uses: docker/setup-qemu-action@5964de0df58d5ad28b04d8fe2e6b80ad47105b91 # v3.5.0,' .github/workflows/*
