@@ -18,3 +18,14 @@ if [ -f pyproject.toml ] ; then
     sed -i '/output-format = "github"/D' pyproject.toml
     pre-commit run --files pyproject.toml || true
 fi
+
+sed -i 's,uses: codecov/codecov-action.*,uses: codecov/codecov-action@0565863a31f2c772f9f0395002a31e3f06189574 # v5.4.0,' .github/workflows/*
+sed -i 's,uses: astral-sh/setup-uv.*,uses: astral-sh/setup-uv@1edb52594c857e2b5b13128931090f0640537287 # v5.3.0,' .github/workflows/*
+sed -i 's,uses: actions/stale.*,uses: actions/stale@5bef64f19d7facfb25b37b414482c7164d639639 # v9.1.0,' .github/workflows/*
+sed -i 's,uses: actions/checkout.*,uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2,' .github/workflows/*
+sed -i 's,uses: actions/setup-python.*,uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0,' .github/workflows/*
+sed -i 's,uses: peter-evans/create-or-update-comment.*,uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0,' .github/workflows/*
+sed -i 's,uses: actions/cache.*,uses: actions/cache@0c907a75c2c80ebcb7f088228285e798b750cf8f # v4.2.1,' .github/workflows/*
+sed -i 's,uses: peter-evans/create-pull-request.*,uses: peter-evans/create-pull-request@dd2324fc52d5d43c699a5636bcf19fceaa70c284 # v7.0.7,' .github/workflows/*
+sed -i 's,uses: srealmoreno/label-sync-action.*,uses: srealmoreno/label-sync-action@850ba5cef2b25e56c6c420c4feed0319294682fd # v2.0.0,' .github/workflows/*
+sed -i 's,uses: stefanzweifel/git-auto-commit-action.*,uses: stefanzweifel/git-auto-commit-action@e348103e9026cc0eee72ae06630dbe30c8bf7a79 # v5.1.0,' .github/workflows/*
