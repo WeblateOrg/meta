@@ -51,16 +51,6 @@ for job_name in data["jobs"]:
                     continue
                 step["with"]["python-version"] = PYTHON_VERSION
                 modified = True
-            if uses.startswith("astral-sh/setup-uv@"):
-                try:
-                    float(step["with"]["cache-suffix"])
-                except (KeyError, ValueError):
-                    continue
-                step["with"]["cache-suffix"] = PYTHON_VERSION
-                modified = True
-            if uses.startswith("actions/checkout@") and uses != "actions/checkout@v4":
-                step["uses"] = "actions/checkout@v4"
-                modified = True
 
 if modified:
     with open(sys.argv[1], "w") as handle:
