@@ -42,6 +42,9 @@ if remove:
     changed = True
 
 has_actionlink = False
+has_blackendocs = False
+has_shellcheck = False
+has_shfmt = False
 
 for repo in data["repos"]:
     if (
@@ -63,6 +66,12 @@ for repo in data["repos"]:
     if repo["repo"] == "https://github.com/asottile/blacken-docs":
         has_blackendocs = True
 
+    if repo["repo"] == "https://github.com/shellcheck-py/shellcheck-py":
+        has_shellcheck = True
+
+    if repo["repo"] == "https://github.com/scop/pre-commit-shfmt":
+        has_shfmt = True
+
 
 if has_blackendocs:
     data["repos"] = [
@@ -72,6 +81,15 @@ if has_blackendocs:
     ]
     changed = True
 
+if has_shellcheck and not has_shfmt:
+    data["repos"].append(
+        {
+            "repo": "https://github.com/scop/pre-commit-shfmt",
+            "rev": "v3.11.0-1",
+            "hooks": [{"id": "shfmt"}],
+        }
+    )
+    changed = True
 
 if not has_actionlink:
     data["repos"].append(
