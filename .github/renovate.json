@@ -4,6 +4,7 @@
     "config:recommended",
     ":dependencyDashboard",
     "helpers:pinGitHubActionDigests",
+    "replacements:all",
     "customManagers:biomeVersions"
   ],
   "labels": [
