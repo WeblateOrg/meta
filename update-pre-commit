@@ -63,7 +63,7 @@ for repo in data["repos"]:
     if repo["repo"] == "https://github.com/rhysd/actionlint":
         has_actionlink = True
 
-    if repo["repo"] == "https://github.com/asottile/blacken-docs":
+    if repo["repo"] == "https://github.com/adamchainz/blacken-docs":
         has_blackendocs = True
 
     if repo["repo"] == "https://github.com/shellcheck-py/shellcheck-py":
@@ -73,12 +73,19 @@ for repo in data["repos"]:
         has_shfmt = True
 
 
-if has_blackendocs:
+if not has_blackendocs:
     data["repos"] = [
         repo
         for repo in data["repos"]
         if repo["repo"] != "https://github.com/asottile/blacken-docs"
     ]
+    data["repos"].append(
+        {
+            "repo": "https://github.com/adamchainz/blacken-docs",
+            "rev": "1.19.1",
+            "hooks": [{"id": "blacken-docs"}],
+        }
+    )
     changed = True
 
 if has_shellcheck and not has_shfmt:
