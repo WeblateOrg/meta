@@ -60,6 +60,18 @@ for repo in data["repos"]:
     if repo["repo"] == "https://github.com/rhysd/actionlint":
         has_actionlink = True
 
+    if repo["repo"] == "https://github.com/asottile/blacken-docs":
+        has_blackendocs = True
+
+
+if has_blackendocs:
+    data["repos"] = [
+        repo
+        for repo in data["repos"]
+        if repo["repo"] != "https://github.com/asottile/blacken-docs"
+    ]
+    changed = True
+
 
 if not has_actionlink:
     data["repos"].append(

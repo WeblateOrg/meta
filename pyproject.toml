@@ -18,6 +18,9 @@ version = "2024.11"
 [tool.isort]
 profile = "black"
 
+[tool.ruff.format]
+docstring-code-format = true
+
 [tool.ruff.lint]
 ignore = [
   "D203",  # CONFIG: incompatible with D211

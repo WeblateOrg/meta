@@ -15,13 +15,12 @@ done
 "${ROOT:-.}/update-pre-commit" .pre-commit-config.yaml
 
 if [ -f pyproject.toml ] ; then
-    sed -i 's/"setuptools>=[0-9.]*"/"setuptools>=78.0.2"/' pyproject.toml
-    sed -i '/"License ::/ D'  pyproject.toml
-    sed -i 's/^license = {text = "\(.*\)"}/license = "\1"/' pyproject.toml
-    sed -i '/license-files = \[\]/ D' pyproject.toml
-    if [ -f COPYING ] && [ ! -f LICENSE ] ; then
-        git mv COPYING LICENSE
+    if ! grep -q docstring-code-format pyproject.toml ; then
+        cat >> pyproject.toml << EOT
+
+[tool.ruff.format]
+docstring-code-format = true
+EOT
     fi
-    sed -i '/^license =/ a license-files = ["LICENSE"]' pyproject.toml
     pre-commit run --files pyproject.toml || true
 fi
