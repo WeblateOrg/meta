@@ -8,14 +8,14 @@
 
 #sed -i s@https://github.com/charliermarsh/ruff-pre-commit@https://github.com/astral-sh/ruff-pre-commit@ .pre-commit-config.yaml
 
-for file in .github/workflows/*.yml ; do
+for file in .github/workflows/*.yml; do
     "${ROOT:-.}/update-workflow" "$file"
 done
 
 "${ROOT:-.}/update-pre-commit" .pre-commit-config.yaml
 
-if [ -f pyproject.toml ] ; then
-    if ! grep -q docstring-code-format pyproject.toml ; then
+if [ -f pyproject.toml ]; then
+    if ! grep -q docstring-code-format pyproject.toml; then
         cat >> pyproject.toml << EOT
 
 [tool.ruff.format]

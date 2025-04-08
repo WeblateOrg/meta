@@ -90,7 +90,7 @@ REMOVEFILES="
     .eslintrc.yml
 "
 
-if [ ! -f .venv/bin/activate ] ; then
+if [ ! -f .venv/bin/activate ]; then
     echo "Missing virtualenv in .venv!"
     exit 1
 fi
@@ -107,25 +107,25 @@ copyfile() {
     file=$1
     repo=$2
     dir=$(dirname "$file")
-    if [ ! -d "$dir" ] ; then
+    if [ ! -d "$dir" ]; then
         mkdir -p "$dir"
     fi
-    if [ -f "../../${file%.*}.$repo.${file##*.}" ] ; then
+    if [ -f "../../${file%.*}.$repo.${file##*.}" ]; then
         cp "../../${file%.*}.$repo.${file##*.}" "$file"
-    elif [ -f "../../$file.$repo" ] ; then
+    elif [ -f "../../$file.$repo" ]; then
         cp "../../$file.$repo" "$file"
     else
         cp "../../$file" "$file"
     fi
-    if [ -f "../../$file.license" ] ; then
+    if [ -f "../../$file.license" ]; then
         cp "../../$file.license" "$file.license"
-    elif [ -f  "$file.license" ] ; then
-        rm  "$file.license"
+    elif [ -f "$file.license" ]; then
+        rm "$file.license"
     fi
 }
 
-for repo in $REPOS ; do
-    if [ ! -d "$repo" ] ; then
+for repo in $REPOS; do
+    if [ ! -d "$repo" ]; then
         git clone "git@github.com:WeblateOrg/$repo.git"
         cd "$repo"
     else
@@ -137,27 +137,27 @@ for repo in $REPOS ; do
     echo "== $repo =="
 
     # Check README
-    if ! grep -q Logo-Darktext-borders.png README.* 2>/dev/null ; then
+    if ! grep -q Logo-Darktext-borders.png README.* 2> /dev/null; then
         echo "WARNING: README does not containing logo."
     fi
 
     # Update files
     mkdir -p .github/workflows/
-    for file in $INITFILES ; do
-        if [ ! -f "$file" ] ; then
+    for file in $INITFILES; do
+        if [ ! -f "$file" ]; then
             copyfile "$file" "$repo"
         fi
     done
-    for file in $COPYFILES ; do
+    for file in $COPYFILES; do
         copyfile "$file" "$repo"
     done
-    for file in $PRESENTFILES ; do
-        if [ -f "$file" ] ; then
+    for file in $PRESENTFILES; do
+        if [ -f "$file" ]; then
             copyfile "$file" "$repo"
         fi
     done
-    for file in $REMOVEFILES ; do
-        if [ -f "$file" ] ; then
+    for file in $REMOVEFILES; do
+        if [ -f "$file" ]; then
             rm "$file"
         fi
     done
@@ -170,7 +170,7 @@ for repo in $REPOS ; do
 
     # Add and push
     git add .
-    if ! git diff --cached --exit-code ; then
+    if ! git diff --cached --exit-code; then
         git commit -m 'chore: Sync with WeblateOrg/meta'
         git push
     fi
