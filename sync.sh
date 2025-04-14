@@ -47,7 +47,6 @@ COPYFILES="
     SECURITY.md
     .github/PULL_REQUEST_TEMPLATE.md
     .markdownlint.yml
-    .github/workflows/stale.yml
     .github/ISSUE_TEMPLATE/bug_report.yml
     .github/ISSUE_TEMPLATE/feature_request.yml
 "
@@ -55,6 +54,7 @@ COPYFILES="
 # Update these files if present
 PRESENTFILES="
     .github/workflows/closing.yml
+    .github/workflows/stale.yml
     .github/labels.yml
     .github/workflows/labels.yml
     .github/workflows/label-sync.yml
