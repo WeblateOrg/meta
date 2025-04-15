@@ -34,11 +34,11 @@ REPOS="
 # Copy the files to all repos if not present, these are expected to diverge
 INITFILES="
     .pre-commit-config.yaml
+    .github/renovate.json
 "
 
 # Copy these files unconditionally
 COPYFILES="
-    .github/renovate.json
     .github/workflows/pre-commit.yml
     .github/workflows/pull_requests.yaml
     .github/FUNDING.yml
