@@ -41,7 +41,8 @@ if remove:
         del data["repos"][offset]
     changed = True
 
-has_actionlink = False
+has_actionlint = False
+has_zizmor = False
 has_blackendocs = False
 has_shellcheck = False
 has_shfmt = False
@@ -61,7 +62,10 @@ for repo in data["repos"]:
         changed = True
 
     if repo["repo"] == "https://github.com/rhysd/actionlint":
-        has_actionlink = True
+        has_actionlint = True
+
+    if repo["repo"] == "https://github.com/woodruffw/zizmor-pre-commit":
+        has_zizmor = True
 
     if repo["repo"] == "https://github.com/adamchainz/blacken-docs":
         has_blackendocs = True
@@ -98,12 +102,22 @@ if has_shellcheck and not has_shfmt:
     )
     changed = True
 
-if not has_actionlink:
+if not has_actionlint:
     data["repos"].append(
         {
             "repo": "https://github.com/rhysd/actionlint",
             "rev": "v1.7.7",
             "hooks": [{"id": "actionlint"}],
+        }
+    )
+    changed = True
+
+if not has_zizmor:
+    data["repos"].append(
+        {
+            "repo": "https://github.com/woodruffw/zizmor-pre-commit",
+            "rev": "v1.6.0",
+            "hooks": [{"id": "zizmor"}],
         }
     )
     changed = True

@@ -51,6 +51,12 @@ for job_name in data["jobs"]:
                     continue
                 step["with"]["python-version"] = PYTHON_VERSION
                 modified = True
+            if uses.startswith("actions/checkout@"):
+                if "with" not in step:
+                    step["with"] = {}
+                if "persist-credentials" not in step["with"]:
+                    step["with"]["persist-credentials"] = "token" in step["with"]
+                    modified = True
 
 if modified:
     with open(sys.argv[1], "w") as handle:
