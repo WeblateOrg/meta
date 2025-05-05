@@ -23,13 +23,13 @@
     "enabled": true
   },
   "pip_requirements": {
-    "fileMatch": [
-      "^requirements-.*\\.txt$"
+    "managerFilePatterns": [
+      "/^requirements-.*\\.txt$/"
     ]
   },
   "pep723": {
-    "fileMatch": [
-      "^scripts/.*\\.py$"
+    "managerFilePatterns": [
+      "/^scripts/.*\\.py$/"
     ]
   },
   "packageRules": [
@@ -85,8 +85,8 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": [
-        "\\.pre-commit-config\\.yaml"
+      "managerFilePatterns": [
+        "/\\.pre-commit-config\\.yaml/"
       ],
       "matchStrings": [
         "(?<depName>[^'\" ]+)==(?<currentValue>[^'\" ,\\s]+)"
@@ -96,8 +96,8 @@
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "\\.pre-commit-config\\.yaml"
+      "managerFilePatterns": [
+        "/\\.pre-commit-config\\.yaml/"
       ],
       "matchStrings": [
         "(?<depName>[^'\" ]+)@(?<currentValue>[^'\" ,\\s]+)"
@@ -107,8 +107,8 @@
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "^.*Dockerfile$"
+      "managerFilePatterns": [
+        "/^.*Dockerfile$/"
       ],
       "matchStrings": [
         "ENV WEBLATE_VERSION=(?<currentValue>.*?)\\n"
@@ -119,8 +119,8 @@
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "^.*Dockerfile$"
+      "managerFilePatterns": [
+        "/^.*Dockerfile$/"
       ],
       "matchStrings": [
         "ENV UV_VERSION=(?<currentValue>.*?)\\n"
@@ -131,8 +131,8 @@
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "(^|/)Chart\\.yaml$"
+      "managerFilePatterns": [
+        "/(^|/)Chart\\.yaml$/"
       ],
       "matchStrings": [
         "renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s+appVersion: (?<currentValue>.*)\\s"
@@ -140,8 +140,8 @@
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "^\\.github/workflows/[^/]+\\.ya?ml$"
+      "managerFilePatterns": [
+        "/^\\.github/workflows/[^/]+\\.ya?ml$/"
       ],
       "matchStrings": [
         "renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s+version: (?<currentValue>.*)\\s"
@@ -149,8 +149,8 @@
     },
     {
       "customType": "regex",
-      "fileMatch": [
-        "^Dockerfile$"
+      "managerFilePatterns": [
+        "/^Dockerfile$/"
       ],
       "matchStrings": [
         "#\\s*renovate:\\s*?(repo=(?<repo>.*?))?\\s*?(release=(?<release>.*?))?\\s*depName=(?<depName>.*?)?\\sENV .*?_VERSION=\"(?<currentValue>.*)\""
