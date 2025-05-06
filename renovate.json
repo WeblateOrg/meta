@@ -6,6 +6,7 @@
     "docker:pinDigests",
     "helpers:pinGitHubActionDigests",
     "replacements:all",
+    "customManagers:githubActionsVersions",
     "customManagers:biomeVersions"
   ],
   "labels": [
