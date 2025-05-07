@@ -7,6 +7,7 @@
     "helpers:pinGitHubActionDigests",
     "replacements:all",
     "customManagers:githubActionsVersions",
+    "customManagers:dockerfileVersions",
     "customManagers:helmChartYamlAppVersions",
     "customManagers:biomeVersions"
   ],
@@ -106,30 +107,6 @@
       ],
       "datasourceTemplate": "npm",
       "versioningTemplate": "npm"
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "/^.*Dockerfile$/"
-      ],
-      "matchStrings": [
-        "ENV WEBLATE_VERSION=(?<currentValue>.*?)\\n"
-      ],
-      "depNameTemplate": "Weblate",
-      "datasourceTemplate": "pypi",
-      "versioningTemplate": "pep440"
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "/^.*Dockerfile$/"
-      ],
-      "matchStrings": [
-        "ENV UV_VERSION=(?<currentValue>.*?)\\n"
-      ],
-      "depNameTemplate": "uv",
-      "datasourceTemplate": "pypi",
-      "versioningTemplate": "pep440"
     },
     {
       "customType": "regex",
