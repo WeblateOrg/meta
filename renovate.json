@@ -77,18 +77,6 @@
         "pypi"
       ],
       "separateMinorPatch": true
-    },
-    {
-      "matchPackageNames": [
-        "python"
-      ],
-      "matchDatasources": [
-        "docker"
-      ],
-      "separateMinorPatch": true,
-      "minor": {
-        "dependencyDashboardApproval": true
-      }
     }
   ],
   "customManagers": [
