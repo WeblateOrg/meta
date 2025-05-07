@@ -7,6 +7,7 @@
     "helpers:pinGitHubActionDigests",
     "replacements:all",
     "customManagers:githubActionsVersions",
+    "customManagers:helmChartYamlAppVersions",
     "customManagers:biomeVersions"
   ],
   "labels": [
@@ -129,24 +130,6 @@
       "depNameTemplate": "uv",
       "datasourceTemplate": "pypi",
       "versioningTemplate": "pep440"
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "/(^|/)Chart\\.yaml$/"
-      ],
-      "matchStrings": [
-        "renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s+appVersion: (?<currentValue>.*)\\s"
-      ]
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "/^\\.github/workflows/[^/]+\\.ya?ml$/"
-      ],
-      "matchStrings": [
-        "renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s+version: (?<currentValue>.*)\\s"
-      ]
     },
     {
       "customType": "regex",
