@@ -1,11 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
+    "config:best-practices",
     "config:recommended",
     ":dependencyDashboard",
-    "docker:pinDigests",
-    "helpers:pinGitHubActionDigests",
-    "replacements:all",
     "customManagers:githubActionsVersions",
     "customManagers:dockerfileVersions",
     "customManagers:helmChartYamlAppVersions",
