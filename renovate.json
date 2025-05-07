@@ -57,6 +57,12 @@
       "automerge": false
     },
     {
+      "matchManagers": [
+        "custom.regex"
+      ],
+      "pinDigests": false
+    },
+    {
       "matchPackageNames": [
         "shellcheck-py/shellcheck-py",
         "scop/pre-commit-shfmt"
