@@ -65,6 +65,8 @@ for repo in data["repos"]:
         has_actionlint = True
 
     if repo["repo"] == "https://github.com/woodruffw/zizmor-pre-commit":
+        repo["repo"] = "https://github.com/zizmorcore/zizmor-pre-commit"
+        changed = True
         has_zizmor = True
 
     if repo["repo"] == "https://github.com/adamchainz/blacken-docs":
@@ -115,7 +117,7 @@ if not has_actionlint:
 if not has_zizmor:
     data["repos"].append(
         {
-            "repo": "https://github.com/woodruffw/zizmor-pre-commit",
+            "repo": "https://github.com/zizmorcore/zizmor-pre-commit",
             "rev": "v1.6.0",
             "hooks": [{"id": "zizmor"}],
         }
