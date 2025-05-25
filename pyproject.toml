@@ -1,6 +1,6 @@
 [dependency-groups]
 dev = [
-  "ruamel.yaml==0.18.10",
+  "ruamel.yaml==0.18.11",
   {include-group = "pre-commit"}
 ]
 pre-commit = [
