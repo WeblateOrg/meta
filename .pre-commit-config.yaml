@@ -50,7 +50,7 @@ repos:
     - mdformat-shfmt==0.2.0
     - mdformat_tables==1.0.0
 - repo: https://github.com/biomejs/pre-commit
-  rev: v1.9.4
+  rev: v2.0.0
   hooks:
   - id: biome-check
     additional_dependencies:
