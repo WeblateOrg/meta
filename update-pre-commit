@@ -46,6 +46,7 @@ has_zizmor = False
 has_blackendocs = False
 has_shellcheck = False
 has_shfmt = False
+has_gitleaks = False
 
 for repo in data["repos"]:
     if repo["repo"] == "https://github.com/astral-sh/ruff-pre-commit":
@@ -68,6 +69,8 @@ for repo in data["repos"]:
         repo["repo"] = "https://github.com/zizmorcore/zizmor-pre-commit"
         changed = True
         has_zizmor = True
+    if repo["repo"] == "https://github.com/zizmorcore/zizmor-pre-commit":
+        has_zizmor = True
 
     if repo["repo"] == "https://github.com/adamchainz/blacken-docs":
         has_blackendocs = True
@@ -77,6 +80,9 @@ for repo in data["repos"]:
 
     if repo["repo"] == "https://github.com/scop/pre-commit-shfmt":
         has_shfmt = True
+
+    if repo["repo"] == "https://github.com/gitleaks/gitleaks":
+        has_gitleaks = True
 
 
 if not has_blackendocs:
@@ -123,6 +129,17 @@ if not has_zizmor:
         }
     )
     changed = True
+
+if not has_gitleaks:
+    data["repos"].append(
+        {
+            "repo": "https://github.com/gitleaks/gitleaks",
+            "rev": "v8.27.2",
+            "hooks": [{"id": "gitleaks-docker"}],
+        }
+    )
+    changed = True
+
 
 if changed:
     with open(sys.argv[1], "w") as handle:
