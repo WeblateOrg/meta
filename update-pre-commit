@@ -66,6 +66,20 @@ for name in missing:
     data["repos"].append(template_repos[name])
     changed = True
 
+# Update CI config
+if "ci" not in data:
+    data["ci"] = {}
+    changed = True
+if "autoupdate_schedule" not in data["ci"]:
+    data["ci"]["autoupdate_schedule"] = "quarterly"
+    changed = True
+if "skip" not in data["ci"]:
+    data["ci"]["skip"] = []
+    changed = True
+if "gitleaks-docker" not in data["ci"]["skip"]:
+    data["ci"]["skip"].append("gitleaks-docker")
+    changed = True
+
 # Save changed file
 if changed:
     with open(sys.argv[1], "w") as handle:
