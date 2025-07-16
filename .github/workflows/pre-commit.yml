@@ -33,8 +33,9 @@ jobs:
       id: pre-commit-cache
       with:
         path: ~/.cache/pre-commit
-        key: ${{ runner.os }}-pre-commit-${{ steps.get-date.outputs.cache_tag }}
+        key: ${{ runner.os }}-pre-commit-${{ steps.get-date.outputs.cache_tag }}-${{ hashFiles('.pre-commit-config.yaml') }}
         restore-keys: |
+          ${{ runner.os }}-pre-commit-${{ steps.get-date.outputs.cache_tag }}
           ${{ runner.os }}-pre-commit-${{ steps.get-date.outputs.previous_cache_tag }}
           ${{ runner.os }}-pre-commit-
     - name: Setup Python
