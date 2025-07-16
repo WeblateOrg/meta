@@ -23,8 +23,6 @@ SYNC_REPOS = [
     "https://github.com/executablebooks/mdformat",
     "https://github.com/rhysd/actionlint",
     "https://github.com/zizmorcore/zizmor-pre-commit",
-    "https://github.com/shellcheck-py/shellcheck-py",
-    "https://github.com/scop/pre-commit-shfmt",
     "https://github.com/gitleaks/gitleaks",
 ]
 
