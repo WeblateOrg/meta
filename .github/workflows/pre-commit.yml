@@ -34,7 +34,7 @@ jobs:
       with:
         path: ~/.cache/pre-commit
         key: ${{ runner.os }}-pre-commit-${{ steps.get-date.outputs.cache_tag }}
-        restore_keys: |
+        restore-keys: |
           ${{ runner.os }}-pre-commit-${{ steps.get-date.outputs.previous_cache_tag }}
           ${{ runner.os }}-pre-commit-
     - name: Setup Python
