@@ -8,139 +8,68 @@
 
 import subprocess
 import sys
+from pathlib import Path
 
 import ruamel.yaml
+
+REMOVE_REPOS = [
+    "https://github.com/asottile/pyupgrade",
+    "https://github.com/psf/black",
+    "https://github.com/PyCQA/isort",
+    "https://github.com/adamchainz/blacken-docs",
+]
+SYNC_REPOS = [
+    "https://github.com/astral-sh/ruff-pre-commit",
+    "https://github.com/executablebooks/mdformat",
+    "https://github.com/rhysd/actionlint",
+    "https://github.com/zizmorcore/zizmor-pre-commit",
+    "https://github.com/shellcheck-py/shellcheck-py",
+    "https://github.com/scop/pre-commit-shfmt",
+    "https://github.com/gitleaks/gitleaks",
+]
 
 yaml = ruamel.yaml.YAML()
 yaml.indent = 2
 yaml.preserve_quotes = False
 yaml.width = sys.maxsize
 
-MDFORMAT_DEPS = [
-    "mdformat-gfm==0.3.7",
-    "mdformat-ruff==0.1.3",
-    "mdformat-shfmt==0.2.0",
-    "mdformat_tables==1.0.0",
-]
+# Load template
+template_path = Path(__file__).parent / ".pre-commit-config.yaml"
+with template_path.open() as handle:
+    template = yaml.load(handle)
+template_repos = {repo["repo"]: repo for repo in template["repos"]}
+
+# Load target
 with open(sys.argv[1]) as handle:
     data = yaml.load(handle)
 
-remove = []
 changed = False
 
-for offset, repo in enumerate(data["repos"]):
-    if repo["repo"] in (
-        "https://github.com/asottile/pyupgrade",
-        "https://github.com/psf/black",
-        "https://github.com/PyCQA/isort",
-    ):
-        remove.insert(0, offset)
-
+# Remove no longer wanted
+remove = [
+    offset for offset, repo in enumerate(data["repos"]) if repo["repo"] in REMOVE_REPOS
+]
 if remove:
-    for offset in remove:
+    for offset in reversed(remove):
         del data["repos"][offset]
     changed = True
 
-has_actionlint = False
-has_zizmor = False
-has_blackendocs = False
-has_shellcheck = False
-has_shfmt = False
-has_gitleaks = False
-
-for repo in data["repos"]:
-    if repo["repo"] == "https://github.com/astral-sh/ruff-pre-commit":
-        repo["hooks"] = [
-            {"id": "ruff-check", "args": ["--fix", "--exit-non-zero-on-fix"]},
-            {"id": "ruff-format"},
-        ]
-        changed = True
-
-    if repo["repo"] == "https://github.com/executablebooks/mdformat" and len(
-        repo["hooks"][0]["additional_dependencies"]
-    ) != len(MDFORMAT_DEPS):
-        repo["hooks"][0]["additional_dependencies"] = MDFORMAT_DEPS
-        changed = True
-
-    if repo["repo"] == "https://github.com/rhysd/actionlint":
-        has_actionlint = True
-
-    if repo["repo"] == "https://github.com/woodruffw/zizmor-pre-commit":
-        repo["repo"] = "https://github.com/zizmorcore/zizmor-pre-commit"
-        changed = True
-        has_zizmor = True
-    if repo["repo"] == "https://github.com/zizmorcore/zizmor-pre-commit":
-        has_zizmor = True
-
-    if repo["repo"] == "https://github.com/adamchainz/blacken-docs":
-        has_blackendocs = True
-
-    if repo["repo"] == "https://github.com/shellcheck-py/shellcheck-py":
-        has_shellcheck = True
-
-    if repo["repo"] == "https://github.com/scop/pre-commit-shfmt":
-        has_shfmt = True
-
-    if repo["repo"] == "https://github.com/gitleaks/gitleaks":
-        has_gitleaks = True
+# Apply fixups
+missing = set(SYNC_REPOS)
+for offset, repo in enumerate(data["repos"]):
+    if repo["repo"] in missing:
+        missing.remove(repo["repo"])
+        if template_repos[repo["repo"]] != repo:
+            data["repos"][offset] = template_repos[repo["repo"]]
+            changed = True
 
 
-if not has_blackendocs:
-    data["repos"] = [
-        repo
-        for repo in data["repos"]
-        if repo["repo"] != "https://github.com/asottile/blacken-docs"
-    ]
-    data["repos"].append(
-        {
-            "repo": "https://github.com/adamchainz/blacken-docs",
-            "rev": "1.19.1",
-            "hooks": [{"id": "blacken-docs"}],
-        }
-    )
+# Add missing
+for name in missing:
+    data["repos"].append(template_repos[name])
     changed = True
 
-if has_shellcheck and not has_shfmt:
-    data["repos"].append(
-        {
-            "repo": "https://github.com/scop/pre-commit-shfmt",
-            "rev": "v3.11.0-1",
-            "hooks": [{"id": "shfmt"}],
-        }
-    )
-    changed = True
-
-if not has_actionlint:
-    data["repos"].append(
-        {
-            "repo": "https://github.com/rhysd/actionlint",
-            "rev": "v1.7.7",
-            "hooks": [{"id": "actionlint"}],
-        }
-    )
-    changed = True
-
-if not has_zizmor:
-    data["repos"].append(
-        {
-            "repo": "https://github.com/zizmorcore/zizmor-pre-commit",
-            "rev": "v1.6.0",
-            "hooks": [{"id": "zizmor"}],
-        }
-    )
-    changed = True
-
-if not has_gitleaks:
-    data["repos"].append(
-        {
-            "repo": "https://github.com/gitleaks/gitleaks",
-            "rev": "v8.27.2",
-            "hooks": [{"id": "gitleaks-docker"}],
-        }
-    )
-    changed = True
-
-
+# Save changed file
 if changed:
     with open(sys.argv[1], "w") as handle:
         yaml.dump(data, handle)
