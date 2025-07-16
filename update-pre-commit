@@ -19,7 +19,6 @@ REMOVE_REPOS = [
     "https://github.com/adamchainz/blacken-docs",
 ]
 SYNC_REPOS = [
-    "https://github.com/astral-sh/ruff-pre-commit",
     "https://github.com/executablebooks/mdformat",
     "https://github.com/rhysd/actionlint",
     "https://github.com/zizmorcore/zizmor-pre-commit",
