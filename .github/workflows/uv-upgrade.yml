@@ -46,7 +46,6 @@ jobs:
     - uses: astral-sh/setup-uv@557e51de59eb14aaaba2ed9621916900a91d50c6 # v6.6.1
       with:
         enable-cache: true
-        cache-dependency-glob: ''
         cache-suffix: '3.13'
 
     - name: Install apt dependencies
