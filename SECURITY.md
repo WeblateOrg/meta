@@ -8,8 +8,22 @@ This file is maintained in https://github.com/WeblateOrg/meta/
 
 # Weblate security
 
-Weblate’s development team is strongly committed to responsible reporting and
-disclosure of security-related issues. We have adopted and follow policies that
-are geared toward delivering timely security updates to Weblate. The full
-security policy can be found in [the
-documentation](https://docs.weblate.org/en/latest/security/issues.html).
+The Weblate team takes security and related transparency very seriously.
+We welcome any peer review of our 100% open-source code to ensure nobody's Weblate
+is ever compromised or hacked.
+
+If you think you have identified a security issue with a Weblate project, **do
+not open a public issue**.
+
+To responsibly report a security issue, please navigate to the Security tab for
+the repository and click “Report a vulnerability”.
+
+Be sure to include as much detail as necessary in your report. As with
+reporting normal issues, a minimal reproducible example will help the
+maintainers address the issue faster.
+
+More information about practices for reporting and fixing security issues is
+described in [our documentation][1]. This ensures all vulnerabilities are
+solved securely, quickly, and transparently.
+
+[1]: https://docs.weblate.org/en/latest/security/issues.html
