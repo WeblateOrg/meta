@@ -93,3 +93,5 @@ repos:
 exclude: ^.github/ISSUE_TEMPLATE/snippets/.*$
 ci:
   autoupdate_schedule: quarterly
+  skip:
+  - renovate-config-validator
