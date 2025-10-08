@@ -16,7 +16,7 @@ RUNS_UPDATE = {
     "macos-latest": "macos-14",
     "windows-latest": "windows-2022",
 }
-PYTHON_VERSION = "3.13"
+PYTHON_VERSION = "3.14"
 
 yaml = ruamel.yaml.YAML()
 yaml.indent = 2
@@ -46,9 +46,16 @@ for job_name in data["jobs"]:
             uses = step.get("uses", "")
             if uses.startswith("actions/setup-python@"):
                 try:
-                    float(step["with"]["python-version"])
-                except (KeyError, ValueError):
+                    python_version = step["with"]["python-version"]
+                except KeyError:
+                    # Python version not set
                     continue
+                if "||" not in python_version:
+                    try:
+                        float(python_version)
+                    except ValueError:
+                        # Something we cannot parse, skip
+                        continue
                 step["with"]["python-version"] = PYTHON_VERSION
                 modified = True
             if uses.startswith("actions/checkout@"):
