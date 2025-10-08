@@ -79,6 +79,9 @@ if "skip" not in data["ci"]:
 if "gitleaks-docker" not in data["ci"]["skip"]:
     data["ci"]["skip"].append("gitleaks-docker")
     changed = True
+if "reuse" not in data["ci"]["skip"]:
+    data["ci"]["skip"].append("reuse")
+    changed = True
 
 # Save changed file
 if changed:
