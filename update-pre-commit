@@ -79,8 +79,13 @@ if "skip" not in data["ci"]:
 if "gitleaks-docker" not in data["ci"]["skip"]:
     data["ci"]["skip"].append("gitleaks-docker")
     changed = True
-if "reuse" not in data["ci"]["skip"]:
-    data["ci"]["skip"].append("reuse")
+
+if any(repo["repo"] == "https://github.com/fsfe/reuse-tool" for repo in data["repos"]):
+    if "reuse" not in data["ci"]["skip"]:
+        data["ci"]["skip"].append("reuse")
+        changed = True
+elif "reuse" in data["ci"]["skip"]:
+    data["ci"]["skip"].remove("reuse")
     changed = True
 
 # Save changed file
