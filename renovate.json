@@ -82,6 +82,16 @@
         "pypi"
       ],
       "rangeStrategy": "widen"
+    },
+    {
+      "matchDatasources": [
+        "pypi"
+      ],
+      "matchPackageNames": [
+        "weblate-language-data",
+        "wllegal"
+      ],
+      "rangeStrategy": "bump"
     }
   ],
   "customManagers": [
