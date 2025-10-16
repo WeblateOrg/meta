@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Copyright © Michal Čihař <michal@weblate.org>
 #
