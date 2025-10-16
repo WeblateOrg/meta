@@ -46,7 +46,6 @@ repos:
     additional_dependencies:
     - mdformat-gfm==1.0.0
     - mdformat-shfmt==0.2.0
-    - mdformat_tables==1.0.0
 - repo: https://github.com/biomejs/pre-commit
   rev: v2.2.6
   hooks:
