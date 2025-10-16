@@ -16,7 +16,6 @@ RUNS_UPDATE = {
     "macos-latest": "macos-14",
     "windows-latest": "windows-2022",
 }
-PYTHON_VERSION = "3.14"
 
 yaml = ruamel.yaml.YAML()
 yaml.indent = 2
@@ -40,24 +39,9 @@ for job_name in data["jobs"]:
         job["runs-on"] = RUNS_UPDATE[job["runs-on"]]
         modified = True
 
-    # Use latest stable Python version for all workflows
     if "steps" in job:
         for step in job["steps"]:
             uses = step.get("uses", "")
-            if uses.startswith("actions/setup-python@"):
-                try:
-                    python_version = step["with"]["python-version"]
-                except KeyError:
-                    # Python version not set
-                    continue
-                if "||" not in python_version:
-                    try:
-                        float(python_version)
-                    except ValueError:
-                        # Something we cannot parse, skip
-                        continue
-                step["with"]["python-version"] = PYTHON_VERSION
-                modified = True
             if uses.startswith("actions/checkout@"):
                 if "with" not in step:
                     step["with"] = {}
