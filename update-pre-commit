@@ -76,8 +76,8 @@ if "autoupdate_schedule" not in data["ci"]:
 if "skip" not in data["ci"]:
     data["ci"]["skip"] = []
     changed = True
-if "gitleaks-docker" not in data["ci"]["skip"]:
-    data["ci"]["skip"].append("gitleaks-docker")
+if "gitleaks-docker" in data["ci"]["skip"]:
+    data["ci"]["skip"].remove("gitleaks-docker")
     changed = True
 
 if any(repo["repo"] == "https://github.com/fsfe/reuse-tool" for repo in data["repos"]):

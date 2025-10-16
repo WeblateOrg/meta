@@ -89,7 +89,7 @@ repos:
 - repo: https://github.com/gitleaks/gitleaks
   rev: v8.28.0
   hooks:
-  - id: gitleaks-docker
+  - id: gitleaks
 exclude: ^.github/ISSUE_TEMPLATE/snippets/.*$
 ci:
   autoupdate_schedule: quarterly
