@@ -48,6 +48,17 @@ for job_name in data["jobs"]:
                 if "persist-credentials" not in step["with"]:
                     step["with"]["persist-credentials"] = "token" in step["with"]
                     modified = True
+            if uses.startswith("astral-sh/setup-uv@"):
+                if "with" not in step:
+                    step["with"] = ruamel.yaml.CommentedMap()
+                if "version" not in step["with"]:
+                    step["with"]["version"] = "0.9.4"
+                    step["with"].yaml_set_comment_before_after_key(
+                        key="version",
+                        before="renovate: datasource=pypi depName=uv versioning=pep440",
+                        indent=8,
+                    )
+                    modified = True
 
 if modified:
     with open(sys.argv[1], "w") as handle:
