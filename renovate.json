@@ -120,7 +120,7 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
-        "^scripts/fonts\\.toml$"
+        "/^scripts/fonts\\.toml$/"
       ],
       "matchStrings": [
         "renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s+version = (?<currentValue>.*)\\s"
@@ -129,7 +129,7 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
-        "^.github/workflows/.*\\.ya?ml$"
+        "/^.github/workflows/.*\\.ya?ml$/"
       ],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>[a-zA-Z0-9-._]+?) depName=(?<depName>[^\\s]+?)(?: (?:lookupName|packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: extractVersion=(?<extractVersion>[^\\s]+?))?\\s+version:\\s*[\"']?(?<currentValue>.+?)[\"']?\\s"
