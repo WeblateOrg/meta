@@ -129,6 +129,15 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
+        "^.github/workflows/.*.ya?ml$"
+      ],
+      "matchStrings": [
+        "renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s+version: (?<currentValue>.*)\\s"
+      ]
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
         "/^Dockerfile$/"
       ],
       "matchStrings": [
