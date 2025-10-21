@@ -7,22 +7,11 @@
 #git grep -l 'Copyright .*[0-9][ –-]\+\(201[0-9]\|202[0123]\) Michal Čihař' | grep -v '\.po$' | xargs -r sed -i 's/\(Copyright [^0-9]*\)\([0-9]\+[ –-]\+[0-9]\+\) \(Michal Čihař\) <michal@[^>]\+>/\1\3 <michal@weblate.org>/'
 
 #sed -i s@https://github.com/charliermarsh/ruff-pre-commit@https://github.com/astral-sh/ruff-pre-commit@ .pre-commit-config.yaml
-#
+
+sed -i '/# renovate: datasource=pypi depName=uv /D' .github/workflows/*.{yml,yaml}
 
 for file in .github/workflows/*.{yml,yaml}; do
     "${ROOT:-.}/update-workflow" "$file"
 done
 
 "${ROOT:-.}/update-pre-commit" .pre-commit-config.yaml
-
-if [ -f pyproject.toml ]; then
-    sed -i 's/michal@cihar.com/michal@weblate.org/' pyproject.toml
-    if ! grep -q docstring-code-format pyproject.toml; then
-        cat >> pyproject.toml << EOT
-
-[tool.ruff.format]
-docstring-code-format = true
-EOT
-    fi
-    pre-commit run --files pyproject.toml || true
-fi

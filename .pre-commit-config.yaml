@@ -92,5 +92,4 @@ ci:
   autoupdate_schedule: quarterly
   skip:
   - renovate-config-validator
-  - gitleaks-docker
   - reuse

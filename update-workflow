@@ -50,14 +50,9 @@ for job_name in data["jobs"]:
                     modified = True
             if uses.startswith("astral-sh/setup-uv@"):
                 if "with" not in step:
-                    step["with"] = ruamel.yaml.CommentedMap()
+                    step["with"] = {}
                 if "version" not in step["with"]:
-                    step["with"]["version"] = "0.9.4"
-                    step["with"].yaml_set_comment_before_after_key(
-                        key="version",
-                        before="renovate: datasource=pypi depName=uv versioning=pep440",
-                        indent=8,
-                    )
+                    step["with"]["version"] = "0.9.5"
                     modified = True
 
 if modified:
