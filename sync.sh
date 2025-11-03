@@ -64,6 +64,7 @@ PRESENTFILES="
     .github/matchers/mypy.json
     .github/workflows/yarn-update.yml
     .github/workflows/uv-upgrade.yml
+    .github/release.yml
     .eslintrc.yml
     .stylelintrc
 "
@@ -160,6 +161,11 @@ for repo in $REPOS; do
             rm "$file"
         fi
     done
+
+    # Configure GitHub release notes generating
+    if grep -q generateReleaseNotes repos/*/.github/workflows/*; then
+        copyfile ".github/release.yml" "$repo"
+    fi
 
     # Apply fixes
     "$ROOT/repo-fixups"
