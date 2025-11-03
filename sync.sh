@@ -163,7 +163,7 @@ for repo in $REPOS; do
     done
 
     # Configure GitHub release notes generating
-    if grep -q generateReleaseNotes repos/*/.github/workflows/*; then
+    if grep -q generateReleaseNotes .github/workflows/*; then
         copyfile ".github/release.yml" "$repo"
     fi
 
