@@ -4,7 +4,7 @@ dev = [
   {include-group = "pre-commit"}
 ]
 pre-commit = [
-  "pre-commit==4.3.0"
+  "pre-commit==4.4.0"
 ]
 
 [project]
