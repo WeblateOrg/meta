@@ -53,7 +53,7 @@ repos:
     - '@biomejs/biome@2.3.6'
     types_or: [javascript]
 - repo: https://github.com/igorshubovych/markdownlint-cli
-  rev: v0.45.0
+  rev: v0.46.0
   hooks:
   - id: markdownlint
 - repo: https://github.com/fsfe/reuse-tool
