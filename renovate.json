@@ -92,6 +92,7 @@
       ],
       "matchPackageNames": [
         "weblate-language-data",
+        "translate-toolkit",
         "wllegal"
       ],
       "rangeStrategy": "bump"
