@@ -26,6 +26,7 @@ REPOS="
     helm
     siphashc
     openshift
+    kotlin-sdk
     .github
 "
 
