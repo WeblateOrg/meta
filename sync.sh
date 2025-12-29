@@ -10,7 +10,6 @@ REPOS="
     customize-example
     wlc
     scripts
-    fedora_messaging
     weblate
     website
     weblate_schemas
