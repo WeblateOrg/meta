@@ -27,6 +27,7 @@ REPOS="
     siphashc
     openshift
     kotlin-sdk
+    unicode-segmentation-rs
     .github
 "
 
