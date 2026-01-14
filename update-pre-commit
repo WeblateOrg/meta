@@ -104,5 +104,5 @@ if changed:
         yaml.dump(data, handle)
 
     subprocess.run(
-        ["urx", "prek", "run", "--files", sys.argv[1]], check=False, capture_output=True
+        ["uvx", "prek", "run", "--files", sys.argv[1]], check=False, capture_output=True
     )
