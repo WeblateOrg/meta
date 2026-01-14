@@ -60,6 +60,16 @@ for offset, repo in enumerate(data["repos"]):
             data["repos"][offset] = template_repos[repo["repo"]]
             changed = True
 
+    # This is checked by ruff as well
+    if (
+        repo["repo"] == "https://github.com/pre-commit/pre-commit-hooks"
+        and {"id": "debug-statements"} in repo["hooks"]
+    ):
+        repo["hooks"] = [
+            hook for hook in repo["hooks"] if hook["id"] != "debug-statements"
+        ]
+        changed = True
+
 
 # Add missing
 for name in missing:
