@@ -60,5 +60,5 @@ if modified:
         yaml.dump(data, handle)
 
     subprocess.run(
-        ["pre-commit", "run", "--files", sys.argv[1]], check=False, capture_output=True
+        ["uvx", "prek", "run", "--files", sys.argv[1]], check=False, capture_output=True
     )

@@ -63,5 +63,5 @@ with open(filename, "w") as handle:
     yaml.dump(data, handle)
 
 subprocess.run(
-    ["pre-commit", "run", "--files", filename], check=False, capture_output=True
+    ["uvx", "prek", "run", "--files", filename], check=False, capture_output=True
 )
