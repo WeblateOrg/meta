@@ -37,17 +37,10 @@
   "packageRules": [
     {
       "matchDatasources": [
-        "git-refs"
-      ],
-      "automerge": false,
-      "schedule": "on the first day of the month"
-    },
-    {
-      "matchDatasources": [
         "helm"
       ],
       "automerge": false,
-      "schedule": "on the first day of the month"
+      "schedule": "* * 1 * *"
     },
     {
       "matchFileNames": [
