@@ -32,7 +32,7 @@ jobs:
     - uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
       id: pre-commit-cache
       with:
-        path: ~/.cache/prek
+        path: ~/.cache/pre-commit
         key: ${{ runner.os }}-pre-commit-${{ steps.get-date.outputs.cache_tag }}-${{ hashFiles('.pre-commit-config.yaml') }}
         restore-keys: |
           ${{ runner.os }}-pre-commit-${{ steps.get-date.outputs.cache_tag }}
@@ -59,8 +59,8 @@ jobs:
     - name: pre-commit (PEP 735)
       if: steps.detect.outputs.method == 'pep735'
       run: |
-        uv run --only-group pre-commit prek run --all-files --show-diff-on-failure
-        uv run --only-group pre-commit prek cache gc
+        uv run --only-group pre-commit pre-commit run --all-files --show-diff-on-failure
+        uv run --only-group pre-commit pre-commit cache gc
       env:
         RUFF_OUTPUT_FORMAT: github
         REUSE_OUTPUT_FORMAT: github
@@ -68,7 +68,7 @@ jobs:
     - name: pre-commit (uvx)
       if: steps.detect.outputs.method == 'uvx'
       run: |
-        uvx pre-commit run --all --show-diff-on-failure
+        uvx pre-commit run --all-file --show-diff-on-failure
         uvx pre-commit gc
       env:
         RUFF_OUTPUT_FORMAT: github
@@ -78,7 +78,7 @@ jobs:
       if: steps.detect.outputs.method == 'requirements'
       run: |
         uv pip install --system -r requirements-lint.txt
-        pre-commit run --all --show-diff-on-failure
+        pre-commit run --all-files --show-diff-on-failure
         pre-commit gc
       env:
         RUFF_OUTPUT_FORMAT: github

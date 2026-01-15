@@ -6,10 +6,6 @@
 
 sed -i '/# renovate: datasource=pypi depName=uv /D' .github/workflows/*.{yml,yaml}
 
-if [ -f pyproject.toml ]; then
-    sed -i 's/pre-commit==[0-9.]*/prek==0.2.28/' pyproject.toml
-fi
-
 for file in .github/workflows/*.{yml,yaml}; do
     "${ROOT:-.}/update-workflow" "$file"
 done
