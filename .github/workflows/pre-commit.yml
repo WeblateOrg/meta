@@ -32,7 +32,7 @@ jobs:
     - uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
       id: pre-commit-cache
       with:
-        path: ~/.cache/pre-commit
+        path: ~/.cache/prek
         key: ${{ runner.os }}-pre-commit-${{ steps.get-date.outputs.cache_tag }}-${{ hashFiles('.pre-commit-config.yaml') }}
         restore-keys: |
           ${{ runner.os }}-pre-commit-${{ steps.get-date.outputs.cache_tag }}
@@ -53,16 +53,14 @@ jobs:
           echo "method=requirements" >> "$GITHUB_OUTPUT"
         elif test -f pyproject.toml && grep -q dependency-groups pyproject.toml ; then
           echo "method=pep735" >> "$GITHUB_OUTPUT"
-        elif test -f pyproject.toml && grep -q dependency-groups pyproject.toml ; then
-          echo "method=pyproject" >> "$GITHUB_OUTPUT"
         else
           echo "method=uvx" >> "$GITHUB_OUTPUT"
         fi
     - name: pre-commit (PEP 735)
       if: steps.detect.outputs.method == 'pep735'
       run: |
-        uv run --only-group pre-commit pre-commit run --all --show-diff-on-failure
-        uv run --only-group pre-commit pre-commit gc
+        uv run --only-group pre-commit prek run --all --show-diff-on-failure
+        uv run --only-group pre-commit prek cache gc
       env:
         RUFF_OUTPUT_FORMAT: github
         REUSE_OUTPUT_FORMAT: github
@@ -76,15 +74,10 @@ jobs:
         RUFF_OUTPUT_FORMAT: github
         REUSE_OUTPUT_FORMAT: github
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Install dependencies
+    - name: pre-commit (requirements)
       if: steps.detect.outputs.method == 'requirements'
-      run: uv pip install --system -r requirements-lint.txt
-    - name: Install dependencies
-      if: steps.detect.outputs.method == 'pyproject'
-      run: uv pip install --system "$(sed -n 's/.*"\(pre-commit==\([^"]*\)\)".*/\1/p' pyproject.toml)"
-    - name: pre-commit (installed)
-      if: steps.detect.outputs.method == 'requirements' || steps.detect.outputs.method == 'pyproject'
       run: |
+        uv pip install --system -r requirements-lint.txt
         pre-commit run --all --show-diff-on-failure
         pre-commit gc
       env:
