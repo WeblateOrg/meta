@@ -59,7 +59,7 @@ jobs:
     - name: pre-commit (PEP 735)
       if: steps.detect.outputs.method == 'pep735'
       run: |
-        uv run --only-group pre-commit prek run --all --show-diff-on-failure
+        uv run --only-group pre-commit prek run --all-files --show-diff-on-failure
         uv run --only-group pre-commit prek cache gc
       env:
         RUFF_OUTPUT_FORMAT: github
