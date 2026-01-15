@@ -24,6 +24,7 @@ REPOS="
     language-data
     graphics
     helm
+    fonts
     siphashc
     openshift
     kotlin-sdk
