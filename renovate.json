@@ -84,6 +84,7 @@
         "pypi"
       ],
       "matchPackageNames": [
+        "certify",
         "weblate-language-data",
         "translate-toolkit",
         "wllegal"
