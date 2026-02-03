@@ -56,7 +56,7 @@ missing = set(SYNC_REPOS)
 for offset, repo in enumerate(data["repos"]):
     if repo["repo"] in missing:
         missing.remove(repo["repo"])
-        if template_repos[repo["repo"]] != repo:
+        if repo["repo"] in template_repos and template_repos[repo["repo"]] != repo:
             data["repos"][offset] = template_repos[repo["repo"]]
             changed = True
 
