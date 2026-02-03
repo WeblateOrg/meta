@@ -91,3 +91,4 @@ ci:
   skip:
   - renovate-config-validator
   - reuse
+  - kingfisher-auto
