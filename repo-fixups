@@ -10,7 +10,7 @@ if [ -f pyproject.toml ]; then
     sed -i 's/pre-commit==[0-9.]+/prek==0.3.1/' pyproject.toml
 fi
 
-if [ -f requirements.txt ]; then
+if [ -f requirements.txt ] || [ -f requirements-lint.txt ]; then
     sed -i 's/pre-commit==[0-9.]+/prek==0.3.1/' requirements*.txt
 fi
 
