@@ -90,6 +90,16 @@
         "wllegal"
       ],
       "rangeStrategy": "bump"
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "weblate/dev",
+        "weblate/base"
+      ],
+      "groupName": "weblate/base"
     }
   ],
   "customManagers": [
