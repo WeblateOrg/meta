@@ -57,9 +57,7 @@ COPYFILES="
 PRESENTFILES="
     .github/workflows/closing.yml
     .github/workflows/stale.yml
-    .github/labels.yml
     .github/workflows/labels.yml
-    .github/workflows/label-sync.yml
     .github/matchers/sphinx-linkcheck.json
     .github/matchers/sphinx-linkcheck-warn.json
     .github/matchers/sphinx.json
@@ -88,6 +86,8 @@ REMOVEFILES="
     .github/workflows/stylelint.yml
     .github/workflows/codeql-analysis.yml
     .eslintrc.yml
+    .github/labels.yml
+    .github/workflows/label-sync.yml
 "
 
 if [ ! -f .venv/bin/activate ]; then
