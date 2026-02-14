@@ -70,7 +70,7 @@ repos:
   - id: shellcheck
     require_serial: true
 - repo: https://github.com/rhysd/actionlint
-  rev: v1.7.10
+  rev: v1.7.11
   hooks:
   - id: actionlint
 - repo: https://github.com/renovatebot/pre-commit-hooks
