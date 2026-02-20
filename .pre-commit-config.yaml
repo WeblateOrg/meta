@@ -50,7 +50,7 @@ repos:
     additional_dependencies:
     - mdformat-gfm==1.0.0
 - repo: https://github.com/biomejs/pre-commit
-  rev: v2.4.2
+  rev: v2.4.3
   hooks:
   - id: biome-check
     additional_dependencies:
