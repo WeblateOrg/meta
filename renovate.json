@@ -106,7 +106,7 @@
         "git-refs"
       ],
       "matchPackageNames": [
-        "WeblateOrg/docker-compose"
+        "https://github.com/WeblateOrg/docker-compose.git"
       ],
       "automerge": false,
       "schedule": "* * 1 * *"
