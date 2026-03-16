@@ -100,6 +100,16 @@
         "weblate/base"
       ],
       "groupName": "weblate/base"
+    },
+    {
+      "matchDatasources": [
+        "git-refs"
+      ],
+      "matchPackageNames": [
+        "WeblateOrg/docker-compose"
+      ],
+      "automerge": false,
+      "schedule": "* * 1 * *"
     }
   ],
   "customManagers": [
