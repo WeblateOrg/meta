@@ -53,6 +53,12 @@ COPYFILES="
     .github/ISSUE_TEMPLATE/feature_request.yml
 "
 
+# Automated comments
+COMMENTFILES="
+  .github/comments/issue-fixed.md
+  .github/comments/issue-resolved.md
+  .github/comments/issue-newbie.md
+"
 # Update these files if present
 PRESENTFILES="
     .github/workflows/closing.yml
@@ -65,6 +71,7 @@ PRESENTFILES="
     .github/release.yml
     .eslintrc.yml
     .stylelintrc
+    $COMMENTFILES
 "
 
 # Files to remove
@@ -161,6 +168,11 @@ for repo in $REPOS; do
             rm "$file"
         fi
     done
+    if [ -f .github/workflows/closing.yml ] || [ -f .github/workflows/labels.yml ]; then
+        for file in $COMMENTFILES; do
+            copyfile "$file" "$repo"
+        done
+    fi
 
     # Configure GitHub release notes generating
     if grep -q generateReleaseNotes .github/workflows/*; then
