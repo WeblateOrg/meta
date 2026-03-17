@@ -31,6 +31,19 @@ if "permissions" not in data:
     data["permissions"] = {"contents": "read"}
     modified = True
 
+# Include dependabot in ignored branches to match renovate
+# The dependabot might trigger security updates which renovate does not
+# yet see.
+if (
+    (events := data.get("on"))
+    and (push_event := events.get("push"))
+    and (branches := push_event.get("branches-ignore"))
+    and "renovate/**" in branches
+    and "dependabot/**" not in branches
+):
+    branches.append("dependabot/**")
+    modified = True
+
 for job_name in data["jobs"]:
     job = data["jobs"][job_name]
 
