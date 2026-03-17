@@ -36,6 +36,7 @@ if "permissions" not in data:
 # yet see.
 if (
     (events := data.get("on"))
+    and isinstance(events, dict)
     and (push_event := events.get("push"))
     and (branches := push_event.get("branches-ignore"))
     and "renovate/**" in branches
