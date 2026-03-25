@@ -75,6 +75,9 @@ for job_name in data["jobs"]:
                 # Workaround for https://github.com/mgedmin/check-manifest/issues/177
                 step["run"] = "uvx --with pip check-manifest -v"
                 modified = True
+            if step.get("run", "").startswith("uvx pyroma"):
+                step["run"] = f"uvx --with pip {step['run'].removeprefix('uvx ')}"
+                modified = True
 
 if modified:
     with open(sys.argv[1], "w") as handle:
