@@ -93,6 +93,12 @@
     },
     {
       "matchDatasources": [
+        "crate"
+      ],
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchDatasources": [
         "docker"
       ],
       "matchPackageNames": [
