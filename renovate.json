@@ -87,7 +87,8 @@
         "certifi",
         "weblate-language-data",
         "translate-toolkit",
-        "wllegal"
+        "wllegal",
+        "wlhosted"
       ],
       "rangeStrategy": "bump"
     },
