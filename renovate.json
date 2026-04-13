@@ -3,6 +3,7 @@
   "extends": [
     "config:best-practices",
     ":dependencyDashboard",
+    ":semanticCommits",
     "customManagers:githubActionsVersions",
     "customManagers:dockerfileVersions",
     "customManagers:helmChartYamlAppVersions",
