@@ -48,7 +48,7 @@ COPYFILES="
     .editorconfig
     SECURITY.md
     .github/PULL_REQUEST_TEMPLATE.md
-    .markdownlint.yml
+    .rumdl.toml
     .github/ISSUE_TEMPLATE/bug_report.yml
     .github/ISSUE_TEMPLATE/feature_request.yml
 "
@@ -76,6 +76,7 @@ PRESENTFILES="
 
 # Files to remove
 REMOVEFILES="
+    .markdownlint.yml
     .markdownlint.json
     .github/stale.yml
     .github/matchers/flake8.json

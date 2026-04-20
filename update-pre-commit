@@ -12,14 +12,18 @@ from pathlib import Path
 
 import ruamel.yaml
 
+MD_REPOS = [
+    "https://github.com/executablebooks/mdformat",
+    "https://github.com/igorshubovych/markdownlint-cli",
+]
 REMOVE_REPOS = [
     "https://github.com/asottile/pyupgrade",
     "https://github.com/psf/black",
     "https://github.com/PyCQA/isort",
     "https://github.com/adamchainz/blacken-docs",
+    *MD_REPOS,
 ]
 SYNC_REPOS = [
-    "https://github.com/executablebooks/mdformat",
     "https://github.com/rhysd/actionlint",
     "https://github.com/zizmorcore/zizmor-pre-commit",
 ]
@@ -40,6 +44,10 @@ with open(sys.argv[1]) as handle:
     data = yaml.load(handle)
 
 changed = False
+
+# Migrate markdown to rmdml
+if [repo["repo"] in MD_REPOS for repo in data["repos"]]:
+    SYNC_REPOS.append("https://github.com/rvben/rumdl-pre-commit")
 
 # Remove no longer wanted
 remove = [
