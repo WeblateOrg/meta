@@ -48,7 +48,6 @@ COPYFILES="
     .editorconfig
     SECURITY.md
     .github/PULL_REQUEST_TEMPLATE.md
-    .rumdl.toml
     .github/ISSUE_TEMPLATE/bug_report.yml
     .github/ISSUE_TEMPLATE/feature_request.yml
 "
@@ -147,6 +146,16 @@ for repo in $REPOS; do
     # Check README
     if ! grep -q Logo-Darktext-borders.png README.* 2> /dev/null; then
         echo "WARNING: README does not containing logo."
+    fi
+
+    # Markdownling migration
+    if [ -f .rumdl.toml ]; then
+        if ! grep -q rumdl .pre-commit-config.yaml; then
+            git rm .rumdl.toml
+        elif [ -f pyproject.toml ]; then
+            cat .rumdl.toml | grep -v '^#' | sed -e 's/^\[/[tool.rumdl./' -e s/tool.rumdl.global/tool.rumdl/ >> pyproject.toml
+            git rm .rumdl.toml
+        fi
     fi
 
     # Update files
