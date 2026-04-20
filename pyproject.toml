@@ -9,7 +9,7 @@ pre-commit = [
 
 [project]
 authors = [
-  {name = "Michal Čihař", email = "michal@weblate.org"}
+  {email = "michal@weblate.org", name = "Michal Čihař"}
 ]
 name = "weblate-meta"
 requires-python = ">=3.11"
@@ -27,39 +27,46 @@ ignore = [
   "D212"  # CONFIG: incompatible with D213
 ]
 select = [
-  "E",
-  "F",
-  "B",
-  "T10",
   "A",
+  "B",
   "C4",
   "C90",
-  "YTT",
-  "DJ",
-  "UP",
   "D",
+  "DJ",
+  "E",
+  "ERA",
+  "EXE",
+  "F",
+  "G",
+  "ICN",
+  "INP",
+  "ISC",
+  "N",
   "PD",
   "PGH",
-  "PL",
-  "TRY",
-  "RUF",
-  "ERA",
-  "ICN",
-  "ISC",
-  "EXE",
-  "INP",
   "PIE",
-  "G",
+  "PL",
   "PYI",
   "Q",
-  "SIM",
-  "TID",
-  "RSE",
-  "T20",
   "RET",
+  "RSE",
+  "RUF",
+  "SIM",
   "SLF",
-  "N"
+  "T10",
+  "T20",
+  "TID",
+  "TRY",
+  "UP",
+  "YTT"
 ]
 
 [tool.ruff.lint.mccabe]
 max-complexity = 16
+
+[tool.tomlsort]
+ignore_case = true
+sort_inline_arrays = true
+sort_inline_tables = true
+sort_table_keys = true
+spaces_before_inline_comment = 2

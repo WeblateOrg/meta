@@ -41,8 +41,6 @@ repos:
   hooks:
   - id: pretty-format-yaml
     args: [--autofix, --indent, '2']
-  - id: pretty-format-toml
-    args: [--autofix]
 - repo: https://github.com/biomejs/pre-commit
   rev: v2.4.12
   hooks:
@@ -86,6 +84,10 @@ repos:
   rev: v1.95.0
   hooks:
   - id: kingfisher-auto
+- repo: https://github.com/pappasam/toml-sort
+  rev: v0.24.4
+  hooks:
+  - id: toml-sort-fix
 exclude: ^.github/ISSUE_TEMPLATE/snippets/.*$
 ci:
   autoupdate_schedule: quarterly
