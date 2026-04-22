@@ -118,6 +118,15 @@
       ],
       "automerge": false,
       "schedule": "* * 1 * *"
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "gcr.io/oss-fuzz-base/clusterfuzzlite-run-fuzzers"
+      ],
+      "schedule": "* * 15 * *"
     }
   ],
   "customManagers": [
