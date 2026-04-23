@@ -124,7 +124,8 @@
         "docker"
       ],
       "matchPackageNames": [
-        "gcr.io/oss-fuzz-base/clusterfuzzlite-run-fuzzers"
+        "gcr.io/oss-fuzz-base/clusterfuzzlite-run-fuzzers",
+        "gcr.io/oss-fuzz-base/base-builder-python"
       ],
       "schedule": "* * 15 * *"
     }
