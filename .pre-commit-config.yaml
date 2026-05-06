@@ -49,7 +49,7 @@ repos:
     - '@biomejs/biome@2.4.14'
     types_or: [javascript]
 - repo: https://github.com/rvben/rumdl-pre-commit
-  rev: v0.1.88
+  rev: v0.1.89
   hooks:
   - id: rumdl
   - id: rumdl-fmt
