@@ -101,6 +101,16 @@
     },
     {
       "matchDatasources": [
+        "pypi"
+      ],
+      "matchPackageNames": [
+        "boto3",
+        "boto3-stubs"
+      ],
+      "groupName": "boto3"
+    },
+    {
+      "matchDatasources": [
         "docker"
       ],
       "matchPackageNames": [
