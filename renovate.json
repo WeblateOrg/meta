@@ -147,6 +147,12 @@
       "schedule": "* * * * 6"
     },
     {
+      "matchPackageNames": [
+        "astral-sh/uv"
+      ],
+      "schedule": "* * * * 6"
+    },
+    {
       "matchDatasources": [
         "docker"
       ],
