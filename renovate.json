@@ -140,6 +140,13 @@
       "schedule": "* * 1 * *"
     },
     {
+      "matchManagers": [
+        "pre-commit"
+      ],
+      "automerge": false,
+      "schedule": "* * * * 6"
+    },
+    {
       "matchDatasources": [
         "docker"
       ],
