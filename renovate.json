@@ -143,7 +143,6 @@
       "matchManagers": [
         "pre-commit"
       ],
-      "automerge": false,
       "schedule": "* * * * 6"
     },
     {
