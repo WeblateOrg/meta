@@ -152,6 +152,12 @@
       "schedule": "* * * * 6"
     },
     {
+      "matchPackageNames": [
+        "setuptools"
+      ],
+      "schedule": "* * 7 * 0"
+    },
+    {
       "matchDatasources": [
         "docker"
       ],
