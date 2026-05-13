@@ -12,6 +12,7 @@
   "labels": [
     "dependencies"
   ],
+  "abandonmentThreshold": "2 years",
   "automerge": true,
   "automergeType": "pr",
   "automergeStrategy": "rebase",
