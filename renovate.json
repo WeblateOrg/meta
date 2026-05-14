@@ -12,7 +12,6 @@
   "labels": [
     "dependencies"
   ],
-  "abandonmentThreshold": "2 years",
   "automerge": true,
   "automergeType": "pr",
   "automergeStrategy": "rebase",
@@ -37,6 +36,12 @@
     ]
   },
   "packageRules": [
+    {
+      "abandonmentThreshold": "2 years",
+      "matchPackageNames": [
+        "*"
+      ]
+    },
     {
       "matchDatasources": [
         "helm"
