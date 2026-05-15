@@ -8,6 +8,8 @@ name: Pre-commit check
 on:
   push:
     branches-ignore:
+    - copilot/**
+    - codex/**
     - renovate/**
     - weblate
     - dependabot/**
