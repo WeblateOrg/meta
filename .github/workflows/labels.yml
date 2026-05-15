@@ -13,8 +13,9 @@ permissions:
   contents: read
 
 jobs:
-  issueLabeled:
+  issue-labeled:
     permissions:
+      contents: read  # for actions/checkout
       issues: write  # for gh issue comment
     runs-on: ubuntu-slim
     steps:
