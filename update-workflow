@@ -71,12 +71,13 @@ for job_name in data["jobs"]:
                 if "version" not in step["with"]:
                     step["with"]["version"] = "0.9.5"
                     modified = True
-            if step.get("run") == "uvx check-manifest -v":
-                # Workaround for https://github.com/mgedmin/check-manifest/issues/177
-                step["run"] = "uvx --with pip check-manifest -v"
+
+            # Revert workaround for https://github.com/mgedmin/check-manifest/issues/177
+            if step.get("run") == "uvx --with pip check-manifest -v":
+                step["run"] = "uvx check-manifest -v"
                 modified = True
-            if step.get("run", "").startswith("uvx pyroma"):
-                step["run"] = f"uvx --with pip {step['run'].removeprefix('uvx ')}"
+            if step.get("run", "").startswith("uvx --with pip pyroma"):
+                step["run"] = f"uvx {step['run'].removeprefix('uvx --with pip ')}"
                 modified = True
 
 if modified:
