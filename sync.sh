@@ -6,6 +6,11 @@
 
 set -u -e
 
+SYNC_BRANCH="weblate-meta-sync"
+SYNC_COMMIT_MESSAGE="chore: sync with WeblateOrg/meta"
+SYNC_PR_TITLE="$SYNC_COMMIT_MESSAGE"
+SYNC_PR_BODY="Automated sync with WeblateOrg/meta."
+
 REPOS="
     customize-example
     wlc
@@ -132,16 +137,56 @@ copyfile() {
     fi
 }
 
+default_branch() {
+    local branch
+
+    if ! branch=$(git symbolic-ref --quiet --short refs/remotes/origin/HEAD); then
+        echo "Could not determine default branch for $(basename "$PWD")" >&2
+        exit 1
+    fi
+
+    echo "${branch#origin/}"
+}
+
+sync_pr_url() {
+    gh pr list --head "$SYNC_BRANCH" --state open --json url --jq '.[0].url // ""'
+}
+
+push_sync_pr() {
+    local default_branch
+    local pr_url
+
+    default_branch=$1
+
+    git push --force-with-lease origin "$SYNC_BRANCH"
+
+    pr_url=$(sync_pr_url)
+    if [ -z "$pr_url" ]; then
+        gh pr create --base "$default_branch" --head "$SYNC_BRANCH" --title "$SYNC_PR_TITLE" --body "$SYNC_PR_BODY"
+        pr_url=$(sync_pr_url)
+    else
+        echo "Updating existing pull request: $pr_url"
+    fi
+
+    if [ -z "$pr_url" ]; then
+        echo "Could not find sync pull request for $(basename "$PWD")" >&2
+        exit 1
+    fi
+
+    gh pr merge "$pr_url" --auto --rebase
+}
+
 for repo in $REPOS; do
     if [ ! -d "$repo" ]; then
         git clone "git@github.com:WeblateOrg/$repo.git"
-        cd "$repo"
-    else
-        cd "$repo"
-        git reset --quiet --hard origin/HEAD
-        git remote prune origin
-        git pull --quiet
     fi
+    cd "$repo"
+    git fetch --quiet --prune origin
+    DEFAULT_BRANCH=$(default_branch)
+    git reset --quiet --hard
+    git checkout --quiet -B "$DEFAULT_BRANCH" "origin/$DEFAULT_BRANCH"
+    git checkout --quiet -B "$SYNC_BRANCH" "$DEFAULT_BRANCH"
+
     echo "== $repo =="
 
     # Check README
@@ -196,11 +241,11 @@ for repo in $REPOS; do
     # Update issue templates
     "$ROOT/update-issue-config" "$ROOT"
 
-    # Add and push
+    # Add and push pull request
     git add .
     if ! git diff --cached --exit-code; then
-        git commit -m 'chore: Sync with WeblateOrg/meta'
-        git push
+        git commit -m "$SYNC_COMMIT_MESSAGE"
+        push_sync_pr "$DEFAULT_BRANCH"
     fi
 
     echo
