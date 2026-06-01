@@ -12,6 +12,10 @@
   "labels": [
     "dependencies"
   ],
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "enabled": true
+  },
   "automerge": true,
   "automergeType": "pr",
   "automergeStrategy": "rebase",
