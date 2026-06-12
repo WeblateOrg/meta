@@ -118,7 +118,8 @@
         "boto3",
         "boto3-stubs"
       ],
-      "groupName": "boto3"
+      "groupName": "boto3",
+      "schedule": "* * * * 5"
     },
     {
       "matchDatasources": [
@@ -149,6 +150,15 @@
       ],
       "automerge": false,
       "schedule": "* * 1 * *"
+    },
+    {
+      "matchDatasources": [
+        "pypi"
+      ],
+      "matchPackageNames": [
+        "disposable-email-domains"
+      ],
+      "schedule": "* * * * 5"
     },
     {
       "matchManagers": [
