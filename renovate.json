@@ -179,6 +179,12 @@
       "schedule": "* * 7 * 0"
     },
     {
+      "matchPackageNames": [
+        "prek"
+      ],
+      "schedule": "* * * * 0"
+    },
+    {
       "matchDatasources": [
         "docker"
       ],
