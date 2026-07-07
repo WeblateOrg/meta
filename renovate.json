@@ -74,6 +74,15 @@
       "versioning": "loose"
     },
     {
+      "matchManagers": [
+        "pre-commit"
+      ],
+      "matchPackageNames": [
+        "adamtheturtle/doccmd-pre-commit"
+      ],
+      "versioning": "pep440"
+    },
+    {
       "matchPackageNames": [
         "Django"
       ],
