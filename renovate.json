@@ -24,6 +24,9 @@
   "git-submodules": {
     "enabled": true
   },
+  "html": {
+    "enabled": false
+  },
   "pre-commit": {
     "enabled": true
   },
