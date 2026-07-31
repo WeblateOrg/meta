@@ -134,6 +134,27 @@
       "schedule": "* * * * 5"
     },
     {
+      "matchPackageNames": [
+        "astral-sh/uv",
+        "uv"
+      ],
+      "groupName": "uv"
+    },
+    {
+      "matchPackageNames": [
+        "ruff",
+        "astral-sh/ruff-pre-commit"
+      ],
+      "groupName": "ruff"
+    },
+    {
+      "matchPackageNames": [
+        "biomejs/pre-commit",
+        "@biomejs/biome"
+      ],
+      "groupName": "biome"
+    },
+    {
       "matchDatasources": [
         "pypi"
       ],
