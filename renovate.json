@@ -131,6 +131,7 @@
         "boto3-stubs"
       ],
       "groupName": "boto3",
+      "minimumGroupSize": 2,
       "schedule": "* * * * 5"
     },
     {
