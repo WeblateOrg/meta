@@ -142,6 +142,13 @@
     },
     {
       "matchPackageNames": [
+        "webpack",
+        "webpack-cli"
+      ],
+      "groupName": "webpack"
+    },
+    {
+      "matchPackageNames": [
         "ruff",
         "astral-sh/ruff-pre-commit"
       ],
