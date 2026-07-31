@@ -159,7 +159,14 @@
         "biomejs/pre-commit",
         "@biomejs/biome"
       ],
-      "groupName": "biome"
+      "groupName": "biome",
+      "minimumGroupSize": 2
+    },
+    {
+      "matchPackageNames": [
+        "@biomejs/biome"
+      ],
+      "minimumReleaseAge": "1 day"
     },
     {
       "matchDatasources": [
