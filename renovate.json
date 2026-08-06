@@ -136,6 +136,16 @@
       "schedule": "* * * * 5"
     },
     {
+      "matchDatasources": [
+        "pypi"
+      ],
+      "matchPackageNames": [
+        "django-stubs",
+        "django-stubs-ext"
+      ],
+      "groupName": "django-stubs"
+    },
+    {
       "matchPackageNames": [
         "astral-sh/uv",
         "uv"
