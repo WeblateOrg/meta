@@ -15,4 +15,7 @@ Meta repository used to keep in sync actions, labels and some other metadata.
 Usage
 -----
 
-./sync.sh
+::
+
+   ./sync.sh
+   ./lint.sh

@@ -11,32 +11,6 @@ SYNC_COMMIT_MESSAGE="chore: sync with WeblateOrg/meta"
 SYNC_PR_TITLE="$SYNC_COMMIT_MESSAGE"
 SYNC_PR_BODY="Automated sync with WeblateOrg/meta."
 
-REPOS="
-    customize-example
-    wlc
-    scripts
-    weblate
-    website
-    weblate_schemas
-    translation-finder
-    munin
-    fail2ban
-    docker
-    docker-base
-    docker-dev
-    docker-compose
-    hosted wllegal
-    language-data
-    graphics
-    helm
-    fonts
-    siphashc
-    openshift
-    kotlin-sdk
-    unicode-segmentation-rs
-    .github
-"
-
 # Copy the files to all repos if not present, these are expected to diverge
 INITFILES="
     .pre-commit-config.yaml
@@ -113,6 +87,9 @@ fi
 
 export ROOT="$PWD"
 
+# shellcheck disable=SC1091
+. "$ROOT/repo-common.sh"
+
 mkdir -p repos
 cd repos
 
@@ -135,17 +112,6 @@ copyfile() {
     elif [ -f "$file.license" ]; then
         rm "$file.license"
     fi
-}
-
-default_branch() {
-    local branch
-
-    if ! branch=$(git symbolic-ref --quiet --short refs/remotes/origin/HEAD); then
-        echo "Could not determine default branch for $(basename "$PWD")" >&2
-        exit 1
-    fi
-
-    echo "${branch#origin/}"
 }
 
 sync_pr_url() {
@@ -177,22 +143,11 @@ push_sync_pr() {
 }
 
 for repo in $REPOS; do
-    if [ ! -d "$repo" ]; then
-        git clone "git@github.com:WeblateOrg/$repo.git"
-    fi
+    DEFAULT_BRANCH=$(prepare_repository "$repo")
     cd "$repo"
-    git fetch --quiet --prune origin
-    DEFAULT_BRANCH=$(default_branch)
-    git reset --quiet --hard
-    git checkout --quiet -B "$DEFAULT_BRANCH" "origin/$DEFAULT_BRANCH"
     git checkout --quiet -B "$SYNC_BRANCH" "$DEFAULT_BRANCH"
 
     echo "== $repo =="
-
-    # Check README
-    if ! grep -q Logo-Darktext-borders.png README.* 2> /dev/null; then
-        echo "WARNING: README does not containing logo."
-    fi
 
     # Markdownling migration
     if [ -f .rumdl.toml ]; then
