@@ -255,28 +255,6 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
-        "/^\\.pre-commit-config\\.yaml$/"
-      ],
-      "matchStrings": [
-        "(?<depName>[^'\" ]+)==(?<currentValue>[^'\" ,\\s]+)"
-      ],
-      "datasourceTemplate": "pypi",
-      "versioningTemplate": "pep440"
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "/^\\.pre-commit-config\\.yaml$/"
-      ],
-      "matchStrings": [
-        "(?<depName>[^'\" ]+)@(?<currentValue>[^'\" ,\\s]+)"
-      ],
-      "datasourceTemplate": "npm",
-      "versioningTemplate": "npm"
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
         "/^scripts/fonts\\.toml$/"
       ],
       "matchStrings": [

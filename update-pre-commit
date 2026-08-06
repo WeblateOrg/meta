@@ -6,6 +6,7 @@
 
 """Synchronizes pre-commit config for Weblate repositories."""
 
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -27,6 +28,10 @@ SYNC_REPOS = [
     "https://github.com/rhysd/actionlint",
     "https://github.com/zizmorcore/zizmor-pre-commit",
 ]
+DEPENDENCY_PATTERNS = (
+    ("python", re.compile(r"[^'\" ]+==[^'\" ,\s]+")),
+    ("node", re.compile(r"[^'\" ]+@[^'\" ,\s]+")),
+)
 
 yaml = ruamel.yaml.YAML()
 yaml.indent = 2
@@ -88,6 +93,22 @@ for offset, repo in enumerate(data["repos"]):
 for name in missing:
     data["repos"].append(template_repos[name])
     changed = True
+
+# Add language tags so that Renovate can detect additional dependencies
+for repo in data["repos"]:
+    for hook in repo["hooks"]:
+        dependencies = hook.get("additional_dependencies", ())
+        language = next(
+            (
+                language
+                for language, pattern in DEPENDENCY_PATTERNS
+                if any(pattern.search(dependency) for dependency in dependencies)
+            ),
+            None,
+        )
+        if language is not None and hook.get("language") != language:
+            hook["language"] = language
+            changed = True
 
 # Update CI config
 if "ci" not in data:

@@ -45,6 +45,7 @@ repos:
   rev: v2.5.7
   hooks:
   - id: biome-check
+    language: node
     additional_dependencies:
     - '@biomejs/biome@2.5.7'
     types_or: [javascript]
