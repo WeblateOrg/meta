@@ -11,6 +11,13 @@ export ROOT="$PWD"
 # shellcheck disable=SC1091
 . "$ROOT/repo-common.sh"
 
+lint_status=0
+
+warning() {
+    echo "WARNING: $1"
+    lint_status=1
+}
+
 uses_pre_commit_dependency_group() {
     awk '
         /^\[dependency-groups\]$/ {
@@ -36,12 +43,14 @@ for repo in $REPOS; do
     echo "== $repo =="
 
     if ! grep -q Logo-Darktext-borders.png README.* 2> /dev/null; then
-        echo "WARNING: README does not contain logo."
+        warning "README does not contain logo."
     fi
 
     if [ -f pyproject.toml ] && ! uses_pre_commit_dependency_group; then
-        echo "WARNING: pyproject.toml does not use pre-commit dependency group."
+        warning "pyproject.toml does not use pre-commit dependency group."
     fi
 
     echo
 done
+
+exit "$lint_status"
