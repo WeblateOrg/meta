@@ -28,7 +28,8 @@
     "enabled": false
   },
   "pre-commit": {
-    "enabled": true
+    "enabled": true,
+    "prBodyNotes": []
   },
   "poetry": {
     "enabled": false
