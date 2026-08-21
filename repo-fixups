@@ -10,8 +10,6 @@ if [ -f pyproject.toml ]; then
     sed -i 's/pre-commit==[0-9.]\+/prek==0.3.1/' pyproject.toml
 fi
 
-for file in .github/workflows/*.{yml,yaml}; do
-    "${ROOT:-.}/update-workflow" "$file"
-done
+find .github/workflows/ -regex '^.**\.ya?ml$' -exec "${ROOT:-.}/update-workflow" '{}' \;
 
 "${ROOT:-.}/update-pre-commit" .pre-commit-config.yaml
