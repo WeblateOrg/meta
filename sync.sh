@@ -75,6 +75,7 @@ REMOVEFILES="
     .eslintrc.yml
     .github/labels.yml
     .github/workflows/label-sync.yml
+    .github/workflows/pull_requests.yaml
 "
 
 if [ ! -f .venv/bin/activate ]; then
