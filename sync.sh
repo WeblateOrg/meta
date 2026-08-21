@@ -21,7 +21,6 @@ INITFILES="
 COPYFILES="
     .github/workflows/pre-commit.yml
     .github/actions/pre-commit-setup/action.yml
-    .github/workflows/pull_requests.yaml
     .github/workflows/dependency-review.yml
     .github/FUNDING.yml
     .yamllint.yml
