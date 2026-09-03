@@ -46,7 +46,8 @@ with template_path.open() as handle:
 template_repos = {repo["repo"]: repo for repo in template["repos"]}
 
 # Load target
-with open(sys.argv[1]) as handle:
+precommit_file = Path(sys.argv[1])
+with precommit_file.open() as handle:
     data = yaml.load(handle)
 
 changed = False
@@ -66,6 +67,13 @@ if remove:
 
 # Apply fixups
 missing = set(SYNC_REPOS)
+
+# pyproject linter/formatter
+pyproject = precommit_file.parent / "pyproject.toml"
+if pyproject.exists():
+    missing.add("https://github.com/abravalheri/validate-pyproject")
+    missing.add("https://github.com/pappasam/toml-sort")
+
 for offset, repo in enumerate(data["repos"]):
     if repo["repo"] in missing:
         missing.remove(repo["repo"])
@@ -95,9 +103,9 @@ for name in missing:
     data["repos"].append(template_repos[name])
     changed = True
 
-# Add language tags so that Renovate can detect additional dependencies
 for repo in data["repos"]:
     for hook in repo["hooks"]:
+        # Add language tags so that Renovate can detect additional dependencies
         dependencies = hook.get("additional_dependencies", ())
         language = next(
             (
@@ -110,6 +118,10 @@ for repo in data["repos"]:
         if language is not None and hook.get("language") != language:
             hook["language"] = language
             changed = True
+    # Convert wrong float rev to str
+    if "rev" in repo and isinstance(repo["rev"], float):
+        repo["rev"] = str(repo["rev"])
+        changed = True
 
 # Update CI config
 if "ci" not in data:

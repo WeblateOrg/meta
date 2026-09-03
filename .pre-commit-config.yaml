@@ -89,6 +89,10 @@ repos:
   rev: v0.24.4
   hooks:
   - id: toml-sort-fix
+- repo: https://github.com/abravalheri/validate-pyproject
+  rev: '0.26'
+  hooks:
+  - id: validate-pyproject
 exclude: ^.github/ISSUE_TEMPLATE/snippets/.*$
 ci:
   autoupdate_schedule: quarterly
