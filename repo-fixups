@@ -8,6 +8,8 @@ if [ -f pyproject.toml ]; then
     sed -i 's/pre-commit==[0-9.]\+/prek==0.3.1/' pyproject.toml
 fi
 
+uvx zizmor .github/workflows/* --fix
+
 find .github/workflows/ -regex '^.**\.ya?ml$' -exec "${ROOT:-.}/update-workflow" '{}' \;
 
 "${ROOT:-.}/update-pre-commit" .pre-commit-config.yaml

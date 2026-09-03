@@ -22,10 +22,11 @@ REMOVE_REPOS = [
     "https://github.com/psf/black",
     "https://github.com/PyCQA/isort",
     "https://github.com/adamchainz/blacken-docs",
+    "https://github.com/rhysd/actionlint",
     *MD_REPOS,
 ]
 SYNC_REPOS = [
-    "https://github.com/rhysd/actionlint",
+    "https://github.com/kjanat/actionlint",
     "https://github.com/zizmorcore/zizmor-pre-commit",
 ]
 DEPENDENCY_PATTERNS = (
