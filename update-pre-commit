@@ -94,7 +94,7 @@ for offset, repo in enumerate(data["repos"]):
     # Migrate gitleaks to kingfisher
     if repo["repo"] == "https://github.com/gitleaks/gitleaks":
         repo["repo"] = "https://github.com/mongodb/kingfisher"
-        repo["rev"] = "v1.77.0"
+        repo["rev"] = template_repos[repo["repo"]]["rev"]
         repo["hooks"] = [{"id": "kingfisher-auto"}]
         changed = True
 
@@ -105,6 +105,14 @@ for name in missing:
 
 for repo in data["repos"]:
     for hook in repo["hooks"]:
+        if (
+            repo["repo"] == "https://github.com/mongodb/kingfisher"
+            and hook["id"] == "kingfisher-auto"
+        ):
+            env = hook.setdefault("env", {})
+            if env.get("KINGFISHER_VERSION") != repo["rev"]:
+                env["KINGFISHER_VERSION"] = repo["rev"]
+                changed = True
         # Add language tags so that Renovate can detect additional dependencies
         dependencies = hook.get("additional_dependencies", ())
         language = next(
@@ -137,7 +145,7 @@ if any(
     if "kingfisher-auto" not in data["ci"]["skip"]:
         data["ci"]["skip"].append("kingfisher-auto")
         changed = True
-elif "reuse" in data["ci"]["skip"]:
+elif "kingfisher-auto" in data["ci"]["skip"]:
     data["ci"]["skip"].remove("kingfisher-auto")
     changed = True
 

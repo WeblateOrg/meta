@@ -239,6 +239,17 @@
       "schedule": "* * * * 6"
     },
     {
+      "matchManagers": [
+        "pre-commit",
+        "custom.regex"
+      ],
+      "matchPackageNames": [
+        "mongodb/kingfisher"
+      ],
+      "versioning": "semver-coerced",
+      "schedule": "* * * * 6"
+    },
+    {
       "matchPackageNames": [
         "setuptools"
       ],
@@ -262,6 +273,17 @@
     }
   ],
   "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^\\.pre-commit-config\\.yaml$/"
+      ],
+      "matchStrings": [
+        "(?:^|\\n)[ \\t]+KINGFISHER_VERSION:[ \\t]*[\"']?(?<currentValue>v?\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?)[\"']?[ \\t]*(?:\\r?\\n|$)"
+      ],
+      "datasourceTemplate": "github-tags",
+      "depNameTemplate": "mongodb/kingfisher"
+    },
     {
       "customType": "regex",
       "managerFilePatterns": [
