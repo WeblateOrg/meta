@@ -86,7 +86,7 @@ repos:
   hooks:
   - id: kingfisher-auto
     env:
-      KINGFISHER_VERSION: v2.0.0
+      KINGFISHER_VERSION: v2.1.0
 - repo: https://github.com/pappasam/toml-sort
   rev: v0.24.4
   hooks:
