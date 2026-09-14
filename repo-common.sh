@@ -29,6 +29,7 @@ REPOS="
     openshift
     kotlin-sdk
     unicode-segmentation-rs
+    arsc-writer
     .github
 "
 
