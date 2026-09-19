@@ -88,7 +88,7 @@ repos:
     env:
       KINGFISHER_VERSION: v2.5.0
 - repo: https://github.com/pappasam/toml-sort
-  rev: v0.24.4
+  rev: v0.25.0
   hooks:
   - id: toml-sort-fix
 - repo: https://github.com/abravalheri/validate-pyproject
