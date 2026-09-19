@@ -1,7 +1,7 @@
 [dependency-groups]
 dev = [
   "ruamel.yaml==0.19.1",
-  {include-group = "pre-commit"}
+  { include-group = "pre-commit" }
 ]
 pre-commit = [
   "prek==0.5.3"
@@ -9,7 +9,7 @@ pre-commit = [
 
 [project]
 authors = [
-  {email = "michal@weblate.org", name = "Michal Čihař"}
+  { email = "michal@weblate.org", name = "Michal Čihař" }
 ]
 name = "weblate-meta"
 requires-python = ">=3.11"
