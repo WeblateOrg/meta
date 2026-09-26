@@ -82,11 +82,11 @@ repos:
   hooks:
   - id: zizmor
 - repo: https://github.com/mongodb/kingfisher
-  rev: v2.5.0
+  rev: v2.7.0
   hooks:
   - id: kingfisher-auto
     env:
-      KINGFISHER_VERSION: v2.5.0
+      KINGFISHER_VERSION: v2.7.0
 - repo: https://github.com/pappasam/toml-sort
   rev: v0.25.0
   hooks:
