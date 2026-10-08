@@ -20,6 +20,7 @@
   "automergeType": "pr",
   "automergeStrategy": "rebase",
   "platformAutomerge": true,
+  "rebaseWhen": "conflicted",
   "maxMajorIncrement": 2026,
   "git-submodules": {
     "enabled": true
