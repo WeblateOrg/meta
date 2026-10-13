@@ -130,6 +130,7 @@
       ],
       "matchPackageNames": [
         "boto3",
+        "botocore",
         "boto3-stubs"
       ],
       "groupName": "boto3",
