@@ -236,6 +236,12 @@
     },
     {
       "matchPackageNames": [
+        "@redocly/cli"
+      ],
+      "schedule": "* * * * 5"
+    },
+    {
+      "matchPackageNames": [
         "astral-sh/uv"
       ],
       "schedule": "* * * * 6"
