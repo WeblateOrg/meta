@@ -42,12 +42,12 @@ repos:
   - id: pretty-format-yaml
     args: [--autofix, --indent, '2']
 - repo: https://github.com/biomejs/pre-commit
-  rev: v2.6.2
+  rev: v2.6.4
   hooks:
   - id: biome-check
     language: node
     additional_dependencies:
-    - '@biomejs/biome@2.6.2'
+    - '@biomejs/biome@2.6.4'
     types_or: [javascript]
 - repo: https://github.com/rvben/rumdl-pre-commit
   rev: v0.3.0
