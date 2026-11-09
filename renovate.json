@@ -139,6 +139,15 @@
       "schedule": "* * * * 5"
     },
     {
+      "description": "Group python-social-auth dependency updates",
+      "matchPackageNames": [
+        "social-auth-core",
+        "social-auth-app-django"
+      ],
+      "groupName": "python-social-auth dependencies",
+      "groupSlug": "python-social-auth"
+    },
+    {
       "matchDatasources": [
         "pypi"
       ],
