@@ -131,7 +131,8 @@
       "matchPackageNames": [
         "boto3",
         "botocore",
-        "boto3-stubs"
+        "boto3-stubs",
+        "botocore-stubs"
       ],
       "groupName": "boto3",
       "minimumGroupSize": 2,
