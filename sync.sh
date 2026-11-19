@@ -114,32 +114,39 @@ copyfile() {
     fi
 }
 
-sync_pr_url() {
-    gh pr list --head "$SYNC_BRANCH" --state open --json url --jq '.[0].url // ""'
+sync_pr_number() {
+    local repository=$1
+    local default_branch=$2
+
+    gh api --hostname github.com --method GET "repos/$repository/pulls" \
+        -f state=open -f head="${repository%%/*}:$SYNC_BRANCH" -f base="$default_branch" \
+        --jq '[.[] | select(.head.repo.full_name != null and .head.repo.full_name == .base.repo.full_name) | .number]
+            | if length > 1 then error("Multiple matching sync pull requests") else .[0] // empty end'
 }
 
 push_sync_pr() {
-    local default_branch
-    local pr_url
+    local repository=$1
+    local default_branch=$2
+    local sync_head
+    local pr_number
 
-    default_branch=$1
+    sync_head=$(git rev-parse HEAD)
+    git push --force-with-lease origin "$sync_head:refs/heads/$SYNC_BRANCH"
 
-    git push --force-with-lease origin "$SYNC_BRANCH"
-
-    pr_url=$(sync_pr_url)
-    if [ -z "$pr_url" ]; then
-        gh pr create --base "$default_branch" --head "$SYNC_BRANCH" --title "$SYNC_PR_TITLE" --body "$SYNC_PR_BODY"
-        pr_url=$(sync_pr_url)
+    pr_number=$(sync_pr_number "$repository" "$default_branch")
+    if [ -z "$pr_number" ]; then
+        gh pr create --repo "github.com/$repository" --base "$default_branch" --head "$SYNC_BRANCH" --title "$SYNC_PR_TITLE" --body "$SYNC_PR_BODY"
+        pr_number=$(sync_pr_number "$repository" "$default_branch")
     else
-        echo "Updating existing pull request: $pr_url"
+        echo "Updating existing pull request: https://github.com/$repository/pull/$pr_number"
     fi
 
-    if [ -z "$pr_url" ]; then
-        echo "Could not find sync pull request for $(basename "$PWD")" >&2
+    if [ -z "$pr_number" ]; then
+        echo "Could not find sync pull request for $repository" >&2
         exit 1
     fi
 
-    gh pr merge "$pr_url" --auto --rebase
+    gh pr merge --repo "github.com/$repository" "$pr_number" --auto --rebase --match-head-commit "$sync_head"
 }
 
 for repo in $REPOS; do
@@ -200,7 +207,7 @@ for repo in $REPOS; do
     git add .
     if ! git diff --cached --exit-code; then
         git commit -m "$SYNC_COMMIT_MESSAGE"
-        push_sync_pr "$DEFAULT_BRANCH"
+        push_sync_pr "WeblateOrg/$repo" "$DEFAULT_BRANCH"
     fi
 
     echo
