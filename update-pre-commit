@@ -28,6 +28,7 @@ REMOVE_REPOS = [
 SYNC_REPOS = [
     "https://github.com/kjanat/actionlint",
     "https://github.com/zizmorcore/zizmor-pre-commit",
+    "https://github.com/mongodb/kingfisher",
 ]
 DEPENDENCY_PATTERNS = (
     ("python", re.compile(r"[^'\" ]+==[^'\" ,\s]+")),
@@ -91,13 +92,6 @@ for offset, repo in enumerate(data["repos"]):
         ]
         changed = True
 
-    # Migrate gitleaks to kingfisher
-    if repo["repo"] == "https://github.com/gitleaks/gitleaks":
-        repo["repo"] = "https://github.com/mongodb/kingfisher"
-        repo["rev"] = template_repos[repo["repo"]]["rev"]
-        repo["hooks"] = [{"id": "kingfisher-auto"}]
-        changed = True
-
 # Add missing
 for name in missing:
     data["repos"].append(template_repos[name])
@@ -105,14 +99,6 @@ for name in missing:
 
 for repo in data["repos"]:
     for hook in repo["hooks"]:
-        if (
-            repo["repo"] == "https://github.com/mongodb/kingfisher"
-            and hook["id"] == "kingfisher-auto"
-        ):
-            env = hook.setdefault("env", {})
-            if env.get("KINGFISHER_VERSION") != repo["rev"]:
-                env["KINGFISHER_VERSION"] = repo["rev"]
-                changed = True
         # Add language tags so that Renovate can detect additional dependencies
         dependencies = hook.get("additional_dependencies", ())
         language = next(
@@ -139,13 +125,10 @@ if "autoupdate_schedule" not in data["ci"]:
     data["ci"]["autoupdate_schedule"] = "quarterly"
     changed = True
 
-if any(
-    repo["repo"] == "https://github.com/mongodb/kingfisher" for repo in data["repos"]
-):
-    if "kingfisher-auto" not in data["ci"]["skip"]:
-        data["ci"]["skip"].append("kingfisher-auto")
-        changed = True
-elif "kingfisher-auto" in data["ci"]["skip"]:
+if "kingfisher-auto-files" not in data["ci"]["skip"]:
+    data["ci"]["skip"].append("kingfisher-auto-files")
+    changed = True
+if "kingfisher-auto" in data["ci"]["skip"]:
     data["ci"]["skip"].remove("kingfisher-auto")
     changed = True
 
