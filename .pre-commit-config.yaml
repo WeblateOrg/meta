@@ -84,7 +84,7 @@ repos:
 - repo: https://github.com/mongodb/kingfisher
   rev: v2.20.0
   hooks:
-  - id: kingfisher-auto
+  - id: kingfisher-auto-files
     env:
       KINGFISHER_VERSION: v2.20.0
 - repo: https://github.com/pappasam/toml-sort
@@ -101,4 +101,4 @@ ci:
   skip:
   - renovate-config-validator
   - reuse
-  - kingfisher-auto
+  - kingfisher-auto-files
